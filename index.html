@@ -4,31 +4,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Crowny Hotel - Experience luxury and comfort at our premier hotel with modern amenities and exceptional service.">
-  <meta name="keywords" content="hotel, luxury, accommodation, booking, rooms, travel">
-  <title>Crowny Hotel - Luxury Accommodation & Premium Service</title>
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="./favicon.ico">
-  <link rel="icon" type="image/png" href="./Images/logo.png">
-  
-  <!-- Preload critical CSS -->
-  <link rel="preload" href="./css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="./css/style.css"></noscript>
-  
-  <!-- Preconnect to external domains -->
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link rel="preconnect" href="https://code.jquery.com">
-  <link rel="preconnect" href="https://kit.fontawesome.com">
-  
-  <!-- Non-critical CSS - load asynchronously -->
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  
-  <noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-  </noscript>
+  <title>Crowny Hotel</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A==" crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -37,7 +19,7 @@
   <header>
     <div class="content flex_space">
       <div class="logo">
-        <img src="Images/logo.png" alt="" class="header-logo">
+        <img src="images/logo.png" alt="">
       </div>
       <div class="navlinks">
         <ul id="menulist">
@@ -55,14 +37,26 @@
     </div>
   </header>
 
-  <!-- Menu toggle script moved to bottom for better performance -->
+
+  <script>
+    var menulist = document.getElementById('menulist');
+    menulist.style.maxHeight = "0px";
+
+    function menutoggle() {
+      if (menulist.style.maxHeight == "0px") {
+        menulist.style.maxHeight = "100vh";
+      } else {
+        menulist.style.maxHeight = "0px";
+      }
+    }
+  </script>
 
 
   <section class="home">
     <div class="content">
       <div class="owl-carousel owl-theme">
         <div class="item">
-          <img src="Images/banner-1.png" alt="Hotel Banner 1" loading="eager">
+          <img src="images/banner-1.png" alt="">
           <div class="text">
             <h1>Spend Your Holiday</h1>
             <p>Your home away from home.
@@ -74,7 +68,7 @@
           </div>
         </div>
         <div id="home" class="item">
-          <img src="Images/banner-2.png" alt="Hotel Banner 2" loading="lazy">
+          <img src="images/banner-2.png" alt="">
           <div class="text">
             <h1>Spend Your Holiday</h1>
             <p>Your home away from home.
@@ -86,7 +80,7 @@
           </div>
         </div>
         <div class="item">
-          <img src="Images/banner-3.png" alt="Hotel Banner 3" loading="lazy">
+          <img src="images/banner-3.png" alt="">
           <div class="text">
             <h1>Spend Your Holiday</h1>
             <p>Your home away from home.
@@ -101,7 +95,30 @@
     </div>
   </section>
 
-  <!-- Scripts moved to bottom for better performance -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js" integrity="sha512-gY25nC63ddE0LcLPhxUJGFxa2GoIyA5FLym4UJqHDEMHjp8RET6Zn/SHo1sltt3WuVtqfyxECP38/daUc/WVEA==" crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+  <script>
+    $('.owl-carousel').owlCarousel({
+      loop: true,
+      margin: 0,
+      nav: true,
+      dots: false,
+      navText: ["<i class = 'fa fa-chevron-left'></i>", "<i class = 'fa fa-chevron-right'></i>"],
+      responsive: {
+        0: {
+          items: 1
+        },
+        768: {
+          items: 1
+        },
+        1000: {
+          items: 1
+        }
+      }
+    })
+  </script>
 
 
 
@@ -136,7 +153,7 @@
         <button class="primary-btn">ABOUT US</button>
       </div>
       <div class="right">
-        <img src="Images/about.png" alt="About Crowny Hotel" loading="lazy" class="about-image">
+        <img src="images/about.png" alt="">
       </div>
     </div>
   </section>
@@ -179,8 +196,8 @@
       <div class="content mtop">
         <div class="owl-carousel owl-carousel1 owl-theme">
           <div class="items">
-            <div class="room-image">
-              <img src="Images/room-1.png" alt="Family Room - Crowny Hotel" loading="lazy">
+            <div class="image">
+              <img src="images/room-1.png" alt="">
             </div>
             <div class="text">
               <h2>Family Room</h2>
@@ -200,8 +217,8 @@
             </div>
           </div>
           <div class="items">
-            <div class="room-image">
-              <img src="Images/room-2.png" alt="Executive Suite - Crowny Hotel" loading="lazy">
+            <div class="image">
+              <img src="images/room-2.png" alt="">
             </div>
             <div class="text">
               <h2>Executive Suite</h2>
@@ -221,8 +238,8 @@
             </div>
           </div>
           <div class="items">
-            <div class="room-image">
-              <img src="Images/room-3.png" alt="Deluxe Room - Crowny Hotel" loading="lazy">
+            <div class="image">
+              <img src="images/room-3.png" alt="">
             </div>
             <div class="text">
               <h2>Deluxe Room</h2>
@@ -244,8 +261,8 @@
             </div>
           </div>
           <div class="items">
-            <div class="room-image">
-              <img src="Images/room-4.png" alt="Double Room - Crowny Hotel" loading="lazy">
+            <div class="image">
+              <img src="images/room-4.png" alt="">
             </div>
             <div class="text">
               <h2>Double Room</h2>
@@ -268,8 +285,29 @@
       </div>
     </div>
   </section>
+  <script>
+    $('.owl-carousel1').owlCarousel({
+      loop: true,
+      margin: 40,
+      nav: true,
+      dots: false,
+      navText: ["<i class = 'fa fa-chevron-left'></i>", "<i class = 'fa fa-chevron-right'></i>"],
+      responsive: {
+        0: {
+          items: 1
+        },
+        768: {
+          items: 2,
+          margin: 10,
+        },
+        1000: {
+          items: 3
+        }
+      }
+    })
+  </script>
 
-  <!-- Rooms carousel script moved to bottom -->
+
 
   <section class="gallery">
     <div class="container top">
@@ -283,8 +321,8 @@
     <div class="content mtop">
       <div class="owl-carousel owl-carousel1 owl-theme">
         <div class="items">
-          <div class="gallery-img">
-            <img src="Images/gallery-1.png" alt="">
+          <div class="img">
+            <img src="images/gallery-1.png" alt="">
           </div>
           <div class="overlay">
             <span class="fa fa-plus"> </span>
@@ -292,8 +330,8 @@
           </div>
         </div>
         <div class="items">
-          <div class="gallery-img">
-            <img src="Images/gallery-2.png" alt="">
+          <div class="img">
+            <img src="images/gallery-2.png" alt="">
           </div>
           <div class="overlay">
             <span class="fa fa-plus"> </span>
@@ -301,8 +339,8 @@
           </div>
         </div>
         <div class="items">
-          <div class="gallery-img">
-            <img src="Images/gallery-3.png" alt="">
+          <div class="img">
+            <img src="images/gallery-3.png" alt="">
           </div>
           <div class="overlay">
             <span class="fa fa-plus"> </span>
@@ -310,8 +348,8 @@
           </div>
         </div>
         <div class="items">
-          <div class="gallery-img">
-            <img src="Images/gallery-4.png" alt="">
+          <div class="img">
+            <img src="images/gallery-4.png" alt="">
           </div>
           <div class="overlay">
             <span class="fa fa-plus"> </span>
@@ -319,8 +357,8 @@
           </div>
         </div>
         <div class="items">
-          <div class="gallery-img">
-            <img src="Images/gallery-5.png" alt="">
+          <div class="img">
+            <img src="images/gallery-5.png" alt="">
           </div>
           <div class="overlay">
             <span class="fa fa-plus"> </span>
@@ -328,8 +366,8 @@
           </div>
         </div>
         <div class="items">
-          <div class="gallery-img">
-            <img src="Images/gallery-6.png" alt="">
+          <div class="img">
+            <img src="images/gallery-6.png" alt="">
           </div>
           <div class="overlay">
             <span class="fa fa-plus"> </span>
@@ -337,8 +375,8 @@
           </div>
         </div>
         <div class="items">
-          <div class="gallery-img">
-            <img src="Images/gallery-4.png" alt="">
+          <div class="img">
+            <img src="images/gallery-4.png" alt="">
           </div>
           <div class="overlay">
             <span class="fa fa-plus"> </span>
@@ -346,8 +384,8 @@
           </div>
         </div>
         <div class="items">
-          <div class="gallery-img">
-            <img src="Images/gallery-3.png" alt="">
+          <div class="img">
+            <img src="images/gallery-3.png" alt="">
           </div>
           <div class="overlay">
             <span class="fa fa-plus"> </span>
@@ -355,8 +393,8 @@
           </div>
         </div>
         <div class="items">
-          <div class="gallery-img">
-            <img src="Images/gallery-1.png" alt="">
+          <div class="img">
+            <img src="images/gallery-1.png" alt="">
           </div>
           <div class="overlay">
             <span class="fa fa-plus"> </span>
@@ -364,8 +402,8 @@
           </div>
         </div>
         <div class="items">
-          <div class="gallery-img">
-            <img src="Images/gallery-6.png" alt="">
+          <div class="img">
+            <img src="images/gallery-6.png" alt="">
           </div>
           <div class="overlay">
             <span class="fa fa-plus"> </span>
@@ -376,7 +414,31 @@
     </div>
   </section>
 
-  <!-- Gallery carousel script moved to bottom -->
+
+  <script>
+    $('.owl-carousel1').owlCarousel({
+      loop: true,
+      margin: 0,
+      nav: true,
+      dots: false,
+      autoplay: true,
+      autoplayTimeout: 1000,
+      autoplayHoverPause: true,
+      navText: ["<i class = 'fa fa-chevron-left'></i>", "<i class = 'fa fa-chevron-right'></i>"],
+      responsive: {
+        0: {
+          items: 1
+        },
+        768: {
+          items: 4,
+        },
+        1000: {
+          items: 6
+        }
+      }
+    })
+  </script>
+
 
   <section class="services top">
     <div id="services" class="container">
@@ -415,7 +477,7 @@
           </div>
         </div>
         <div class="right">
-          <img src="Images/service.png" alt="Hotel Services" class="services-image">
+          <img src="images/service.png" alt="">
         </div>
       </div>
     </div>
@@ -451,8 +513,25 @@
       </div>
     </div>
   </section>
-  
-  <!-- Customer testimonials carousel script moved to bottom -->
+  <script>
+    $('.owl-carousel2').owlCarousel({
+      loop: true,
+      margin: 0,
+      nav: false,
+      dots: true,
+      responsive: {
+        0: {
+          items: 1
+        },
+        768: {
+          items: 1,
+        },
+        1000: {
+          items: 1
+        }
+      }
+    })
+  </script>
 
 
 
@@ -468,8 +547,8 @@
       <div class="content flex">
         <div class="left grid2">
           <div class="items">
-            <div class="blog-image">
-              <img src="Images/blog-1.png" alt="">
+            <div class="image">
+              <img src="images/blog-1.png" alt="">
             </div>
             <div class="text">
               <h2>Finibus bonorum malorm.</h2>
@@ -484,8 +563,8 @@
             </div>
           </div>
           <div class="items">
-            <div class="blog-image">
-              <img src="Images/blog-2.png" alt="">
+            <div class="image">
+              <img src="images/blog-2.png" alt="">
             </div>
             <div class="text">
               <h2>Finibus bonorum malorm.</h2>
@@ -503,8 +582,8 @@
 
         <div class="right">
           <div class="box flex">
-            <div class="blog-sidebar-img">
-              <img src="Images/blog-s1.png" alt="">
+            <div class="img">
+              <img src="images/blog-s1.png" alt="">
             </div>
             <div class="stext">
               <h2>Etiam Vel Nequ</h2>
@@ -513,8 +592,8 @@
             </div>
           </div>
           <div class="box flex">
-            <div class="blog-sidebar-img">
-              <img src="Images/blog-s2.png" alt="">
+            <div class="img">
+              <img src="images/blog-s2.png" alt="">
             </div>
             <div class="stext">
               <h2>Etiam Vel Nequ</h2>
@@ -523,8 +602,8 @@
             </div>
           </div>
           <div class="box flex">
-            <div class="blog-sidebar-img">
-              <img src="Images/blog-s3.png" alt="">
+            <div class="img">
+              <img src="images/blog-s3.png" alt="">
             </div>
             <div class="stext">
               <h2>Etiam Vel Nequ</h2>
@@ -550,7 +629,7 @@
   <footer>
     <div class="container grid">
       <div class="box">
-        <img src="Images/logo-2.png" alt="" class="footer-logo">
+        <img src="images/logo-2.png" alt="">
         <p>Crowny Hotel invites you to experience a haven of tranquility and sophistication. Our hotel offers a unique blend of modern comfort and timeless elegance. Immerse yourself in luxurious accommodations, savor delectable cuisine, and unwind in our serene spa. Whether you're seeking a romantic getaway, a productive business trip, or a family vacation, Crowny Hotel is your perfect choice.
         <div class="icon">
           <i class="fa fa-facebook-f"></i>
@@ -589,95 +668,9 @@
     <p class="container">Copyright (c) 2022 Copyright Holder All Rights Reserved.</p>
   </div>
 
-  <!-- JavaScript - Load at the end for better performance -->
-  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" defer></script>
-  <script src="https://kit.fontawesome.com/032d11eac3.js" crossorigin="anonymous" defer></script>
-  
-  <script defer>
-    // Menu toggle functionality
-    document.addEventListener('DOMContentLoaded', function() {
-      var menulist = document.getElementById('menulist');
-      menulist.style.maxHeight = "0px";
 
-      window.menutoggle = function() {
-        if (menulist.style.maxHeight == "0px") {
-          menulist.style.maxHeight = "100vh";
-        } else {
-          menulist.style.maxHeight = "0px";
-        }
-      }
 
-      // Initialize Owl Carousel when jQuery is loaded
-      function initCarousels() {
-        if (typeof $ !== 'undefined' && $.fn.owlCarousel) {
-          // Main banner carousel
-          $('.owl-carousel').owlCarousel({
-            loop: true,
-            margin: 0,
-            nav: true,
-            dots: false,
-            navText: ["<i class = 'fa fa-chevron-left'></i>", "<i class = 'fa fa-chevron-right'></i>"],
-            responsive: {
-              0: { items: 1 },
-              768: { items: 1 },
-              1000: { items: 1 }
-            }
-          });
-
-          // Rooms carousel
-          $('.owl-carousel1').owlCarousel({
-            loop: true,
-            margin: 40,
-            nav: true,
-            dots: false,
-            navText: ["<i class = 'fa fa-chevron-left'></i>", "<i class = 'fa fa-chevron-right'></i>"],
-            responsive: {
-              0: { items: 1 },
-              768: { items: 2, margin: 10 },
-              1000: { items: 3 }
-            }
-          });
-
-          // Gallery carousel
-          $('.owl-carousel1').last().owlCarousel({
-            loop: true,
-            margin: 0,
-            nav: true,
-            dots: false,
-            autoplay: true,
-            autoplayTimeout: 1000,
-            autoplayHoverPause: true,
-            navText: ["<i class = 'fa fa-chevron-left'></i>", "<i class = 'fa fa-chevron-right'></i>"],
-            responsive: {
-              0: { items: 1 },
-              768: { items: 4 },
-              1000: { items: 6 }
-            }
-          });
-
-          // Customer testimonials carousel
-          $('.owl-carousel2').owlCarousel({
-            loop: true,
-            margin: 0,
-            nav: false,
-            dots: true,
-            responsive: {
-              0: { items: 1 },
-              768: { items: 1 },
-              1000: { items: 1 }
-            }
-          });
-        } else {
-          // Retry if jQuery/OwlCarousel not loaded yet
-          setTimeout(initCarousels, 100);
-        }
-      }
-
-      // Start carousel initialization
-      initCarousels();
-    });
-  </script>
+  <script src="https://kit.fontawesome.com/032d11eac3.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

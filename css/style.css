@@ -299,7 +299,7 @@ h1 {
 /*--------about---------*/
 /*--------counter---------*/
 .counter {
-  background-image: url("../Images/background-1.png");
+  background-image: url("../images/background-1.png");
   background-size: cover;
   background-repeat: no-repeat;
   height: 30vh;
@@ -392,12 +392,27 @@ h1 {
   position: relative;
 }
 
-/* Updated to use new gallery-img class */
-.gallery .gallery-img {
+.gallery img {
+  width: 100%;
+  height: 100%;
+}
+
+.gallery .img {
   position: relative;
 }
 
-/* Removed old .gallery .img::after - now handled by new .gallery-img class */
+.gallery .img::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(126, 193, 65, 0.86);
+  width: 255px;
+  height: 251px;
+  z-index: 2;
+  opacity: 0;
+  transition: 0.5s;
+}
 
 .overlay {
   position: absolute;
@@ -424,7 +439,8 @@ h1 {
   font-weight: 500;
 }
 
-.gallery .items:hover .overlay {
+.gallery .items:hover .overlay,
+.gallery .items:hover .img::after {
   opacity: 1;
   cursor: pointer;
 }
@@ -502,7 +518,7 @@ h1 {
 /*--------services---------*/
 /*--------Customer---------*/
 .Customer {
-  background-image: url("../Images/background-2.png");
+  background-image: url("../images/background-2.png");
   background-size: cover;
   background-repeat: no-repeat;
   height: 70vh;
@@ -820,165 +836,5 @@ footer label {
 
   footer .grid {
     grid-template-columns: repeat(1, 1fr);
-  }
-}
-
-/* ============================================ */
-/* UNIQUE IMAGE CLASSES FOR EACH SECTION */
-/* ============================================ */
-
-/* Header Logo */
-.header-logo {
-  max-width: 120px;
-  height: auto;
-  margin: 20px 0;
-}
-
-/* Banner/Home Images */
-.home img {
-  width: 100%;
-  height: 100vh;
-  object-fit: cover;
-}
-
-/* About Section Image */
-.about-image {
-  width: 100%;
-  max-width: 500px;
-  height: auto;
-  border-radius: 10px;
-}
-
-/* Room Images */
-.room-image {
-  width: 100%;
-  height: 250px;
-  overflow: hidden;
-  border-radius: 10px;
-}
-
-.room-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.room-image:hover img {
-  transform: scale(1.05);
-}
-
-/* Gallery Images */
-.gallery-img {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-  position: relative;
-}
-
-.gallery-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.gallery-img::after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: "";
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0.466) 0%, rgba(27, 27, 27, 0.39) 100%);
-  z-index: 1;
-}
-
-.gallery .items:hover .gallery-img::after {
-  background: linear-gradient(0deg, rgba(8, 8, 8, 0.466) 0%, rgba(27, 27, 27, 0.39) 100%);
-}
-
-/* Services Section Image */
-.services-image {
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-  border-radius: 15px;
-}
-
-/* Blog Main Images */
-.blog-image {
-  width: 100%;
-  height: 220px;
-  overflow: hidden;
-  border-radius: 8px;
-}
-
-.blog-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Blog Sidebar Images */
-.blog-sidebar-img {
-  width: 80px;
-  height: 80px;
-  overflow: hidden;
-  border-radius: 5px;
-  flex-shrink: 0;
-}
-
-.blog-sidebar-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Footer Logo */
-.footer-logo {
-  max-width: 150px;
-  height: auto;
-  margin-bottom: 20px;
-}
-
-/* ============================================ */
-/* RESPONSIVE ADJUSTMENTS FOR IMAGE CLASSES */
-/* ============================================ */
-
-@media screen and (max-width: 768px) {
-  .header-logo {
-    max-width: 100px;
-    margin: 15px 0;
-  }
-  
-  .about-image {
-    max-width: 100%;
-    margin-top: 30px;
-  }
-  
-  .room-image {
-    height: 200px;
-  }
-  
-  .gallery-img {
-    height: 150px;
-  }
-  
-  .services-image {
-    max-width: 100%;
-    margin-top: 30px;
-  }
-  
-  .blog-image {
-    height: 180px;
-  }
-  
-  .blog-sidebar-img {
-    width: 60px;
-    height: 60px;
-  }
-  
-  .footer-logo {
-    max-width: 120px;
   }
 }
