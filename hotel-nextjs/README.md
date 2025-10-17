@@ -1,36 +1,136 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏨 Hotel Reservation System - Next.js
 
-## Getting Started
+A modern, responsive hotel reservation website built with Next.js 15, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+## ✨ Features
 
+- **Modern UI/UX**: Clean, professional design with smooth animations
+- **Mobile Responsive**: Optimized for all devices with hamburger navigation
+- **Authentication System**: Login and signup pages with form validation
+- **Room Gallery**: Interactive room cards with booking functionality
+- **Type Safety**: Full TypeScript integration for better development experience
+- **Performance**: Next.js 15 with Turbopack for fast development and builds
+
+## 🚀 Tech Stack
+
+- **Framework**: Next.js 15.5.6 with App Router
+- **Language**: TypeScript
+- **Styling**: CSS3 with modern features
+- **Icons**: React Icons
+- **Development**: Turbopack for fast builds
+- **Code Quality**: ESLint + Prettier
+- **Deployment**: Vercel-ready
+
+## 📦 Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/samuelhany-cpu/Hotel-Rooms-Reservation.git
+cd Hotel-Rooms-Reservation/hotel-nextjs
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Learn More
+## 🛠️ Available Scripts
 
-To learn more about Next.js, take a look at the following resources:
+- `npm run dev` - Start development server with Turbopack
+- `npm run build` - Build for production
+- `npm start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run format` - Format code with Prettier
+- `npm run format:check` - Check code formatting
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📱 Pages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Home** (`/`) - Main landing page with room gallery
+- **Login** (`/login`) - User authentication
+- **Signup** (`/signup`) - User registration
 
-## Deploy on Vercel
+## 🎨 Design Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Responsive Design**: Mobile-first approach with breakpoints
+- **Modern Cards**: Enhanced room and gallery cards with hover effects
+- **Navigation**: Desktop navigation with mobile hamburger menu
+- **Authentication UI**: Professional login/signup forms with gradients
+- **Smooth Animations**: CSS transitions and hover effects
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🚀 Deployment
+
+### Vercel (Recommended)
+
+1. Push your code to GitHub
+2. Visit [vercel.com](https://vercel.com)
+3. Import your GitHub repository
+4. Vercel will automatically detect Next.js and deploy
+5. Your site will be live at `https://your-project.vercel.app`
+
+### Manual Deployment
+
+1. Build the project:
+```bash
+npm run build
+```
+
+2. The build output will be in the `.next` folder
+3. Deploy the contents to your hosting provider
+
+## 📁 Project Structure
+
+```
+hotel-nextjs/
+├── app/                    # Next.js App Router
+│   ├── login/             # Login page
+│   ├── signup/            # Signup page
+│   ├── layout.tsx         # Root layout
+│   ├── page.tsx           # Home page
+│   └── globals.css        # Global styles
+├── components/            # React components
+│   ├── Header.tsx         # Navigation header
+│   ├── Footer.tsx         # Page footer
+│   ├── RoomCard.tsx       # Room display cards
+│   └── GalleryCard.tsx    # Gallery cards
+├── public/               # Static assets
+│   ├── images/           # Hotel images
+│   └── css/              # Legacy CSS files
+├── types/                # TypeScript definitions
+└── package.json          # Dependencies and scripts
+```
+
+## 🔧 Development
+
+The project uses modern development tools:
+
+- **TypeScript**: Full type safety
+- **ESLint**: Code quality and consistency
+- **Prettier**: Automatic code formatting
+- **Next.js App Router**: Modern React development
+
+## 📄 License
+
+This project is open source and available under the MIT License.
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📞 Support
+
+For support and questions, please open an issue in the GitHub repository.
+
+---
+
+Built with ❤️ using Next.js 15 and TypeScript
