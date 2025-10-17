@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
 * {
   padding: 0;
@@ -10,7 +10,8 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-family: sans-serif;
   font-weight: 400;
 }
@@ -76,12 +77,10 @@ button {
   background-color: #6ab12f;
 }
 
-
 header {
   height: 10vh;
   line-height: 10vh;
   padding: 0 20px;
-  
 }
 
 header img {
@@ -119,7 +118,7 @@ header .navlinks span {
   display: none;
 }
 
-@media only screen and (max-width:768px) {
+@media only screen and (max-width: 768px) {
   header ul {
     position: absolute;
     top: 100px;
@@ -247,7 +246,8 @@ h1 {
 
 /*--------book---------*/
 /*--------about---------*/
-.left, .right {
+.left,
+.right {
   width: 50%;
   padding: 30px;
 }
@@ -299,7 +299,7 @@ h1 {
 /*--------about---------*/
 /*--------counter---------*/
 .counter {
-  background-image: url("../images/background-1.png");
+  background-image: url('../images/background-1.png');
   background-size: cover;
   background-repeat: no-repeat;
   height: 30vh;
@@ -518,7 +518,7 @@ h1 {
 /*--------services---------*/
 /*--------Customer---------*/
 .Customer {
-  background-image: url("../images/background-2.png");
+  background-image: url('../images/background-2.png');
   background-size: cover;
   background-repeat: no-repeat;
   height: 70vh;
@@ -728,7 +728,7 @@ footer label {
 }
 
 /*--------footer---------*/
-@media only screen and (max-width:768px) {
+@media only screen and (max-width: 768px) {
   .home {
     color: #fff;
     height: 50vh;
@@ -739,7 +739,8 @@ footer label {
     height: 50vh;
   }
 
-  .left, .right {
+  .left,
+  .right {
     width: 100%;
   }
 

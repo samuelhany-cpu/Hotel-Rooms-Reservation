@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
 * {
   padding: 0;
@@ -10,7 +10,8 @@ body {
   font-family: 'Poppins ', sans-serif;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-family: sans-serif;
   font-weight: 400;
 }
@@ -73,7 +74,7 @@ header .navlinks span {
   display: none;
 }
 
-@media only screen and (max-width:768px) {
+@media only screen and (max-width: 768px) {
   header ul {
     position: absolute;
     top: 100px;
@@ -107,76 +108,71 @@ header .navlinks span {
     font-size: 25px;
   }
 }
-/* Room Details Section */
-.room-details-section {
+
+/* Our Rooms Section */
+.rooms-section {
   padding: 50px 20px;
   background-color: #f8f9fa;
+  text-align: center;
 }
 
-.room-details-container {
+.section-title {
+  font-size: 3.5em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.room-container {
   display: flex;
-  gap: 30px;
   justify-content: center;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
-.room-image img {
-  width: 400px;
-  height: auto;
-  border-radius: 8px;
+.room {
+  background: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.room-info {
-  max-width: 400px;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 300px;
   text-align: left;
 }
 
-.room-info h2 {
-  font-size: 3em;
+.room img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.room-info {
+  padding: 20px;
+  text-align: center;
+}
+
+.room-info h3 {
+  font-size: 1.5em;
   color: #333;
   margin-bottom: 10px;
 }
 
-.room-info p {
-  font-size: 1em;
-  color: #555;
-  line-height: 1.5;
-  margin-bottom: 20px;
-}
-
-.booking-form .form-group {
-  margin-bottom: 15px;
-}
-
-.booking-form label {
-  font-size: 0.9em;
+.room-info h4 {
+  font-size: 1.5em;
   color: #333;
-  display: block;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
-.booking-form input {
-  width: 100%;
-  padding: 10px;
-  font-size: 0.9em;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.submit-button {
+.book-button {
+  display: inline-block;
   padding: 10px 20px;
   background-color: #7fc142;
   color: #fff;
-  font-size: 1em;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
   text-transform: uppercase;
+  text-decoration: none;
   font-weight: bold;
+  border-radius: 4px;
   transition: background-color 0.3s;
 }
 
-.submit-button:hover {
+.book-button:hover {
   background-color: #6ab12f;
 }
