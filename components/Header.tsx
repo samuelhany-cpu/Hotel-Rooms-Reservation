@@ -23,7 +23,7 @@ export default function Header() {
           <Link href="/">
             <Image
               src="/images/logo.png"
-              alt="Hotel Logo"
+              alt="Logo"
               width={250}
               height={90}
               priority
@@ -46,9 +46,6 @@ export default function Header() {
             </li>
             <li>
               <Link href="#services">SERVICES</Link>
-            </li>
-            <li>
-              <Link href="#news">NEWS</Link>
             </li>
             <li>
               <Link href="/signup" className="signup-link">
