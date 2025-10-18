@@ -206,7 +206,7 @@ export default function Home() {
           <div className="left">
             <div className="heading">
               <h1>WELCOME</h1>
-              <h2>Crowny Hotel</h2>
+              <h2>BookingCW</h2>
             </div>
             <p>
               At Booking CW, we are transforming client service through 
