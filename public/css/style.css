@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
+/* ===== Theme Colors ===== */
+:root{
+  --gold: #C7A008;        /* primary gold from your logo */
+  --gold-light: #FFD700;  /* highlight */
+  --gold-dark: #9E7C06;   /* hover/pressed */
+  --gold-a86: rgba(199,160,8,0.86); /* overlays */
+  --gold-a57: rgba(199,160,8,0.57); /* soft circles */
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -43,7 +52,7 @@ button {
 
 .primary-btn {
   padding: 15px 40px;
-  background: #7fc142;
+  background: var(--gold);
   font-weight: bold;
   color: white;
 }
@@ -64,7 +73,7 @@ button {
 /*--------header---------*/
 .book-button {
   padding: 10px 20px;
-  background-color: #7fc142;
+  background-color: var(--gold);
   color: #fff;
   text-transform: uppercase;
   text-decoration: none;
@@ -74,7 +83,7 @@ button {
 }
 
 .book-button:hover {
-  background-color: #6ab12f;
+  background-color: var(--gold-dark);
 }
 
 header {
@@ -103,7 +112,7 @@ header ul li a {
 }
 
 header ul li a:hover {
-  color: #7fc142;
+  color: var(--gold);
 }
 
 header i {
@@ -125,7 +134,7 @@ header .navlinks span {
     left: 0;
     width: 100%;
     height: 100vh;
-    background: #009f7f;
+    background: #009f7f; /* keep mobile menu background as-is unless you want it themed */
     overflow: hidden;
     transition: max-height 0.5s;
     text-align: center;
@@ -232,7 +241,7 @@ h1 {
 }
 
 .book h1 span {
-  color: #7fc142;
+  color: var(--gold);
 }
 
 .book input {
@@ -240,7 +249,7 @@ h1 {
 }
 
 .book input:nth-last-child(1) {
-  background: #7fc142;
+  background: var(--gold);
   color: #fff;
 }
 
@@ -321,7 +330,7 @@ h1 {
 .counter hr {
   width: 50%;
   margin: 10px auto;
-  background: #7fc142;
+  background: var(--gold);
   height: 2px;
   border: none;
 }
@@ -340,7 +349,7 @@ h1 {
 
 .rooms i {
   font-size: 12px;
-  color: #fbb234;
+  color: #fbb234; /* keep star gold */
   margin: 15px 0;
   margin-right: 5px;
 }
@@ -355,7 +364,7 @@ h1 {
   line-height: 20px;
   margin-left: 20px;
   font-weight: 500;
-  color: #7fc142;
+  color: var(--gold);
 }
 
 .rooms h3 span {
@@ -370,7 +379,7 @@ h1 {
   top: -20%;
   height: 50px;
   width: 50px;
-  background: #7fc142 !important;
+  background: var(--gold) !important;
 }
 
 .owl-carousel1 .owl-nav .owl-prev i,
@@ -406,7 +415,7 @@ h1 {
   position: absolute;
   top: 0;
   left: 0;
-  background: rgba(126, 193, 65, 0.86);
+  background: var(--gold-a86);
   width: 255px;
   height: 251px;
   z-index: 2;
@@ -488,7 +497,7 @@ h1 {
 
 .services i {
   font-size: 50px;
-  color: #7fc142;
+  color: var(--gold);
   transition: 0.5s;
 }
 
@@ -505,7 +514,7 @@ h1 {
 }
 
 .services .box:hover {
-  background: #7fc142;
+  background: var(--gold);
   color: #fff;
   cursor: pointer;
 }
@@ -538,7 +547,7 @@ h1 {
 .Customer i {
   width: 100px;
   height: 100px;
-  background: rgba(126, 193, 64, 0.57);
+  background: var(--gold-a57);
   line-height: 100px;
   border-radius: 50%;
   font-size: 50px;
@@ -551,7 +560,7 @@ h1 {
 
 .Customer h3 {
   margin-top: 20px;
-  color: #7fc142;
+  color: var(--gold);
 }
 
 .Customer span {
@@ -565,11 +574,11 @@ h1 {
 }
 
 .owl-carousel2 .owl-dots i {
-  color: #7fc142;
+  color: var(--gold);
 }
 
 .owl-carousel2 .owl-dots i:hover button {
-  color: #7fc142 !important;
+  color: var(--gold) !important;
 }
 
 .owl-carousel2 span {
@@ -578,8 +587,8 @@ h1 {
 }
 
 .owl-carousel2 .active span {
-  background: #7fc142 !important;
-  border: 2px solid #7fc142;
+  background: var(--gold) !important;
+  border: 2px solid var(--gold);
 }
 
 /*--------Customer---------*/
@@ -589,7 +598,7 @@ h1 {
 }
 
 .news i {
-  color: #7fc142;
+  color: var(--gold);
   text-transform: capitalize;
   font-size: 18px;
 }
@@ -646,7 +655,7 @@ h1 {
 }
 
 .newsletter .container {
-  background: #7fc142;
+  background: var(--gold);
   padding: 40px 30px;
   position: absolute;
   top: -70px;
@@ -711,7 +720,7 @@ footer li {
 }
 
 footer i {
-  color: #7fc142;
+  color: var(--gold);
   margin: 20px 0;
   margin-right: 20px;
 }
@@ -811,7 +820,7 @@ footer label {
 
   .newsletter {
     position: relative;
-    background: #7fc142;
+    background: var(--gold);
   }
 
   .newsletter .container {
