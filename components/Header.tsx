@@ -24,8 +24,8 @@ export default function Header() {
             <Image
               src="/images/logo.png"
               alt="Hotel Logo"
-              width={190}
-              height={70}
+              width={250}
+              height={90}
               priority
               style={{ width: 'auto', height: 'auto' }}
             />
