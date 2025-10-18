@@ -12,8 +12,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'Crowny Hotel - Your Home Away From Home',
-  description: 'Hotel rooms reservation website',
+  title: 'Bookingcw',
+  description: 'Welcome to our website',
 };
 
 export default function RootLayout({
