@@ -41,7 +41,7 @@ button {
 
 .primary-btn {
   padding: 15px 40px;
-  background: #796d49;
+  background: #FFD700;
   font-weight: bold;
   color: white;
 }
@@ -62,7 +62,7 @@ button {
 /*--------header---------*/
 .book-button {
   padding: 10px 20px;
-  background-color: #796d49;
+  background-color: #FFD700;
   color: #fff;
   text-transform: uppercase;
   text-decoration: none;
@@ -72,7 +72,7 @@ button {
 }
 
 .book-button:hover {
-  background-color: #453f29;
+  background-color: #FFD700;
 }
 
 header {
@@ -101,7 +101,7 @@ header ul li a {
 }
 
 header ul li a:hover {
-  color: #796d49;
+  color: #FFD700;
 }
 
 header i {
@@ -153,7 +153,7 @@ header .mobile-menu-toggle {
   }
 
   header .mobile-menu-toggle:hover {
-    color: #796d49;
+    color: #FFD700;
   }
 
   /* Fullscreen overlay when menu is active */
@@ -216,7 +216,7 @@ header .mobile-menu-toggle {
 
   .mobile-menu-panel .book-button {
     background: #fff;
-    color: #796d49;
+    color: #FFD700;
     padding: 12px 40px;
     border-radius: 8px;
     border: none;
@@ -227,7 +227,7 @@ header .mobile-menu-toggle {
   }
 
   .mobile-menu-panel .book-button:hover {
-    background: #453f29;
+    background: #FFD700;
     transform: scale(1.05);
   }
 
@@ -316,7 +316,7 @@ h1 {
 }
 
 .book h1 span {
-  color: #796d49;
+  color: #FFD700;
 }
 
 .book input {
@@ -324,7 +324,7 @@ h1 {
 }
 
 .book input:nth-last-child(1) {
-  background: #796d49;
+  background: #FFD700;
   color: #fff;
 }
 
@@ -405,7 +405,7 @@ h1 {
 .counter hr {
   width: 50%;
   margin: 10px auto;
-  background: #796d49;
+  background: #FFD700;
   height: 2px;
   border: none;
 }
@@ -517,7 +517,7 @@ h1 {
 .price-amount {
   font-size: 32px;
   font-weight: 700;
-  color: #796d49;
+  color: #FFD700;
   line-height: 1;
 }
 
@@ -529,7 +529,7 @@ h1 {
 
 .room-card-btn {
   padding: 14px 28px;
-  background: #796d49;
+  background: #FFD700;
   color: #fff;
   text-decoration: none;
   border-radius: 8px;
@@ -589,7 +589,7 @@ h1 {
   line-height: 20px;
   margin-left: 20px;
   font-weight: 500;
-  color: #796d49;
+  color: #FFD700;
 }
 
 .rooms h3 span {
@@ -604,7 +604,7 @@ h1 {
   top: -20%;
   height: 50px;
   width: 50px;
-  background: #796d49 !important;
+  background: #FFD700 !important;
 }
 
 .owl-carousel1 .owl-nav .owl-prev i,
@@ -871,7 +871,7 @@ h1 {
 
 .services i {
   font-size: 50px;
-  color: #796d49;
+  color: #FFD700;
   transition: 0.5s;
 }
 
@@ -888,7 +888,7 @@ h1 {
 }
 
 .services .box:hover {
-  background: #796d49;
+  background: #FFD700;
   color: #fff;
   cursor: pointer;
 }
@@ -934,7 +934,7 @@ h1 {
 
 .Customer h3 {
   margin-top: 20px;
-  color: #796d49;
+  color: #FFD700;
 }
 
 .Customer span {
@@ -948,11 +948,11 @@ h1 {
 }
 
 .owl-carousel2 .owl-dots i {
-  color: #796d49;
+  color: #FFD700;
 }
 
 .owl-carousel2 .owl-dots i:hover button {
-  color: #453f29 !important;
+  color: #FFD700 !important;
 }
 
 .owl-carousel2 span {
@@ -961,8 +961,8 @@ h1 {
 }
 
 .owl-carousel2 .active span {
-  background: #796d49 !important;
-  border: 2px solid #796d49;
+  background: #FFD700 !important;
+  border: 2px solid #FFD700;
 }
 
 /*--------Customer---------*/
@@ -972,7 +972,7 @@ h1 {
 }
 
 .news i {
-  color: #796d49;
+  color: #FFD700;
   text-transform: capitalize;
   font-size: 18px;
 }
@@ -1029,7 +1029,7 @@ h1 {
 }
 
 .newsletter .container {
-  background: #796d49;
+  background: #FFD700;
   padding: 40px 30px;
   position: absolute;
   top: -70px;
@@ -1094,7 +1094,7 @@ footer li {
 }
 
 footer i {
-  color: #796d49;
+  color: #FFD700;
   margin: 20px 0;
   margin-right: 20px;
 }
@@ -1310,7 +1310,7 @@ footer label {
 
   .newsletter {
     position: relative;
-    background: #796d49;
+    background: #FFD700;
   }
 
   .newsletter .container {
@@ -1425,7 +1425,7 @@ footer label {
 
 .form-group input:focus {
   outline: none;
-  border-color: #796d49;
+  border-color: #FFD700;
   background: white;
   box-shadow: 0 0 0 3px rgba(127, 193, 66, 0.1);
 }
@@ -1452,7 +1452,7 @@ footer label {
 
 .forgot-link,
 .terms-link {
-  color: #796d49;
+  color: #FFD700;
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
@@ -1466,7 +1466,7 @@ footer label {
 .auth-btn {
   width: 100%;
   padding: 18px;
-  background: linear-gradient(135deg, #796d49 0%, #6da835 100%);
+  background: linear-gradient(135deg, #FFD700 0%, #6da835 100%);
   color: white;
   border: none;
   border-radius: 12px;
@@ -1493,7 +1493,7 @@ footer label {
 }
 
 .auth-switch-link {
-  color: #796d49;
+  color: #FFD700;
   text-decoration: none;
   font-weight: 600;
 }
