@@ -124,7 +124,7 @@ export default function Home() {
                 priority
               />
               <div className="text">
-                <h1>Spend Your Holiday</h1>
+                <h1>Where Every Request Becomes Reality</h1>
                 <p>Your home away from home.</p>
                 <div className="flex">
                   <a className="primary-btn" href="#about">
@@ -209,19 +209,27 @@ export default function Home() {
               <h2>Crowny Hotel</h2>
             </div>
             <p>
-              Crowny Hotel invites you to experience a haven of tranquility and
-              sophistication. Our hotel offers a unique blend of modern comfort
-              and timeless elegance. Immerse yourself in luxurious
-              accommodations, savor delectable cuisine, and unwind in our serene
-              spa. Whether you&apos;re seeking a romantic getaway, a productive
-              business trip, or a family vacation, Crowny Hotel is your perfect
-              choice.
+              At Booking CW, we are transforming client service through 
+              innovation, efficiency, and transparency. Born out of a vision 
+              to challenge outdated methods, we developed a state of the art 
+              system designed to acknowledge client requests within two 
+              minutes and resolve 99% of cases within a single business day.
+              Our unwavering commitment to transparency is a 
+              cornerstone of our success. By sharing real time feedback and 
+              performance metrics, we foster trust and continuously strive to 
+              enhance the client experience.
+              Today, Booking CW stands at the forefront of exceptional 
+              service delivery, setting new standards for reliability and 
+              excellence. We invite you to experience a redefined approach to 
+              service where speed, precision, and trust converge.
+              Welcome to Booking CW: Service, reimagined.
+
             </p>
             <button className="primary-btn">ABOUT US</button>
           </div>
           <div className="right">
             <Image
-              src="/images/about.png"
+              src="/images/booking-section.jpg"
               alt="About"
               width={600}
               height={400}
