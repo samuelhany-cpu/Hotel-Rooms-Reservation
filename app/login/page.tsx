@@ -30,15 +30,6 @@ export default function LoginPage() {
       <div className="auth-container">
         <div className="auth-card">
           <div className="auth-header">
-            <Link href="/" className="logo-link">
-              <Image
-                src="/images/logo.png"
-                alt="Hotel Logo"
-                width={120}
-                height={40}
-                style={{ width: 'auto', height: 'auto' }}
-              />
-            </Link>
             <h1>Welcome Back</h1>
             <p className="text-gray-600 text-center mb-6">
               Welcome back! Please sign in to your account

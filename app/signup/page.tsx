@@ -42,15 +42,6 @@ export default function SignupPage() {
       <div className="auth-container">
         <div className="auth-card">
           <div className="auth-header">
-            <Link href="/" className="logo-link">
-              <Image
-                src="/images/logo.png"
-                alt="Hotel Logo"
-                width={120}
-                height={40}
-                style={{ width: 'auto', height: 'auto' }}
-              />
-            </Link>
             <h1>Create Account</h1>
             <p>Join us for an amazing experience</p>
           </div>
