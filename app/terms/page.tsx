@@ -2,37 +2,21 @@ import Link from 'next/link';
 
 export default function TermsPage() {
   return (
-    <main className="content-page">
+    <main id="main-content" className="content-page">
       <article className="simple-card legal-copy">
-        <h1>Terms and Conditions</h1>
-        <p>
-          These terms explain the basic conditions for using BookingCW and
-          requesting a reservation.
-        </p>
-        <h2>Reservations</h2>
-        <p>
-          A reservation is confirmed only after availability, pricing, guest
-          details, and payment requirements have been verified.
-        </p>
-        <h2>Changes and cancellations</h2>
-        <p>
-          Change and cancellation conditions may vary by room and rate. The
-          applicable conditions will be shown before a reservation is finalized.
-        </p>
-        <h2>Guest responsibilities</h2>
-        <p>
-          Guests must provide accurate information and follow hotel safety,
-          occupancy, and property policies.
-        </p>
-        <h2>Privacy</h2>
-        <p>
-          Personal information is used only to manage accounts, reservation
-          requests, and service communications.
-        </p>
-        <p className="terms-note">Last updated: November 21, 2026</p>
-        <Link href="/signup" className="back-link">
-          ← Return to sign up
-        </Link>
+        <span className="eyebrow">PORTFOLIO DEMO</span>
+        <h1>Demo terms & conditions</h1>
+        <p>BookingCW is a fictional hotel-booking design concept. It does not represent a real accommodation provider.</p>
+        <h2>Room data and pricing</h2>
+        <p>All room names, features, nightly prices and images are illustrative. They do not constitute an offer or guarantee of availability.</p>
+        <h2>Search and reservations</h2>
+        <p>Search fields currently demonstrate an interface only. No availability is checked, booking is created, or payment is accepted.</p>
+        <h2>Accounts and contact</h2>
+        <p>Login and signup screens are nonfunctional previews. Please do not enter real credentials or personal information.</p>
+        <h2>Changes</h2>
+        <p>Demo content can be updated as the portfolio project evolves.</p>
+        <Link href="/privacy" className="text-link">Privacy and demo data <span aria-hidden="true">→</span></Link>
+        <Link href="/" className="back-link">← Return to homepage</Link>
       </article>
     </main>
   );
