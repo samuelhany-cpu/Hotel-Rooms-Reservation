@@ -40,8 +40,6 @@
     "jsdom": "^27.2.0"
   },
   "overrides": {
-    "next": {
-      "postcss": "^8.5.23"
-    }
+    "postcss": "^8.5.23"
   }
 }
