@@ -91,7 +91,8 @@ export default async function RoomPage({
             ← All sample rooms
           </Link>
           <p className="demo-notice" role="note">
-            Sample room concept and fictional nightly price. No real availability is checked or reservation created.
+            Sample room concept and fictional nightly price. No real
+            availability is checked or reservation created.
           </p>
           <h1>{room.title}</h1>
           <p>{room.description}</p>

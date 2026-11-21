@@ -12,14 +12,19 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: 'BookingCW | Hotel Booking Concept',
-  description: 'Explore BookingCW, a fictional hotel booking portfolio demo with sample rooms and a guest-first interface.',
+  description:
+    'Explore BookingCW, a fictional hotel booking portfolio demo with sample rooms and a guest-first interface.',
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body className={poppins.variable}>
-        <a className="skip-link" href="#main-content">Skip to main content</a>
+        <a className="skip-link" href="#main-content">
+          Skip to main content
+        </a>
         <Header />
         {children}
         <Footer />
