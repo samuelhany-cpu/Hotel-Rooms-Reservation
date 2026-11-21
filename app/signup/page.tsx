@@ -96,7 +96,9 @@ export default function SignupPage() {
                   placeholder="Fictional value only"
                   autoComplete="off"
                   aria-invalid={Boolean(errors.password)}
-                  aria-describedby={errors.password ? 'password-error' : undefined}
+                  aria-describedby={
+                    errors.password ? 'password-error' : undefined
+                  }
                   required
                 />
               </div>
@@ -109,7 +111,9 @@ export default function SignupPage() {
                   placeholder="Repeat the sample value"
                   autoComplete="off"
                   aria-invalid={Boolean(errors.password)}
-                  aria-describedby={errors.password ? 'password-error' : undefined}
+                  aria-describedby={
+                    errors.password ? 'password-error' : undefined
+                  }
                   required
                 />
               </div>

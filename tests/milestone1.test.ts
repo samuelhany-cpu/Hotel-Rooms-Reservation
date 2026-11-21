@@ -23,9 +23,10 @@ describe('Milestone 1 route safety', () => {
   });
 
   it('does not log or alert with authentication form values', () => {
-    const source = [read('app/login/page.tsx'), read('app/signup/page.tsx')].join(
-      '\n'
-    );
+    const source = [
+      read('app/login/page.tsx'),
+      read('app/signup/page.tsx'),
+    ].join('\n');
 
     expect(source).not.toMatch(/console\.log\s*\(/);
     expect(source).not.toMatch(/alert\s*\(/);
