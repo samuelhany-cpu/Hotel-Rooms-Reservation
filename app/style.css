@@ -4,7 +4,7 @@
   --muted: #59656a;
   --paper: #f8f6f1;
   --ivory: #fffdf9;
-  --bronze: #8b663e;
+  --bronze: #79532d;
   --bronze-dark: #6e4b28;
   --line: #dedbd3;
   --surface: #f0ede6;
@@ -1574,4 +1574,9 @@ img {
   .text-link {
     color: #61401e;
   }
+}
+
+/* Keep the bronze accent legible on the dark footer background. */
+.footer-wordmark > span {
+  color: #d6b18a;
 }
