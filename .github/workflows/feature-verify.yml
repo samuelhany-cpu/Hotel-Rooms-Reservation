@@ -9,7 +9,7 @@ on:
       - main
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   verify:
@@ -24,25 +24,8 @@ jobs:
         with:
           node-version: 20
 
-      - name: Regenerate lockfile for Milestone 4 dependencies
-        run: npm install --package-lock-only --ignore-scripts --no-audit
-
       - name: Install dependencies
         run: npm ci --ignore-scripts
-
-      - name: Apply formatting
-        run: npm run format
-
-      - name: Commit generated lockfile and formatting
-        if: github.event_name == 'push' && github.ref == 'refs/heads/feature/portfolio-demo-v1'
-        run: |
-          if ! git diff --quiet; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add -u
-            git commit -m "Update Milestone 4 lockfile and formatting"
-            git push origin HEAD:refs/heads/feature/portfolio-demo-v1
-          fi
 
       - name: Check formatting
         run: npm run format:check
@@ -55,6 +38,9 @@ jobs:
 
       - name: Run focused tests
         run: npm run test
+
+      - name: Coverage report
+        run: npm run test:coverage
 
       - name: Audit all dependencies
         run: npm audit --audit-level=moderate
