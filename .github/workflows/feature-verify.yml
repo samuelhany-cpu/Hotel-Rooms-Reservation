@@ -27,8 +27,13 @@ jobs:
       - name: Install dependencies
         run: npm install --ignore-scripts
 
-      - name: Check formatting
-        run: npx prettier --check package.json vitest.config.ts lib tests app/login/page.tsx app/signup/page.tsx app/forgot-password/page.tsx 'app/rooms/[slug]/page.tsx' components/Header.tsx
+      - name: Show required formatting
+        run: |
+          echo '--- SIGNUP ---'
+          npx prettier app/signup/page.tsx
+          echo '--- TEST ---'
+          npx prettier tests/milestone1.test.ts
+          exit 1
 
       - name: Lint
         run: npm run lint
