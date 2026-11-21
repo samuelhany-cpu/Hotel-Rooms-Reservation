@@ -104,7 +104,9 @@ export default function Home() {
               </button>
             </form>
             <div className="booking-disclosure" role="note">
-              <strong>Demo only.</strong> Enter fictional dates and guest counts to explore sample availability and pricing. No real reservation or payment is processed.
+              <strong>Demo only.</strong> Enter fictional dates and guest counts
+              to explore sample availability and pricing. No real reservation or
+              payment is processed.
               <Link href="/book"> Start the booking demo.</Link>
             </div>
           </div>
@@ -165,7 +167,14 @@ export default function Home() {
           </div>
           <div className="rooms-grid">
             {ROOMS.map((room) => (
-              <RoomCard key={room.slug} image={room.image} title={room.title} description={room.description} price={room.price} bookingLink={'/rooms/' + room.slug} />
+              <RoomCard
+                key={room.slug}
+                image={room.image}
+                title={room.title}
+                description={room.description}
+                price={room.price}
+                bookingLink={'/rooms/' + room.slug}
+              />
             ))}
           </div>
         </div>
@@ -208,7 +217,9 @@ export default function Home() {
           <div>
             <p>
               This is a frontend concept. Room descriptions, amenities and
-              prices are sample content. Sample availability and confirmation are calculated locally as part of the interactive demo. Accounts, payments and emails are not connected to real services.
+              prices are sample content. Sample availability and confirmation
+              are calculated locally as part of the interactive demo. Accounts,
+              payments and emails are not connected to real services.
             </p>
             <Link className="text-link" href="/privacy">
               How demo data is handled <span aria-hidden="true">→</span>

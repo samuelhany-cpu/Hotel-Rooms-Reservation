@@ -1,8 +1,5 @@
 export type RoomSlug =
-  | 'family-room'
-  | 'executive-suite'
-  | 'deluxe-room'
-  | 'double-room';
+  'family-room' | 'executive-suite' | 'deluxe-room' | 'double-room';
 
 export interface DemoRoom {
   slug: RoomSlug;
@@ -24,8 +21,14 @@ export const ROOMS: readonly DemoRoom[] = [
     price: 250,
     capacity: 4,
     beds: 'One queen bed and two single beds',
-    description: 'A spacious sample room designed for family time and a relaxed group stay.',
-    features: ['Private bathroom', 'Sample Wi-Fi amenity', 'Flexible family layout', 'Breakfast option (illustrative)'],
+    description:
+      'A spacious sample room designed for family time and a relaxed group stay.',
+    features: [
+      'Private bathroom',
+      'Sample Wi-Fi amenity',
+      'Flexible family layout',
+      'Breakfast option (illustrative)',
+    ],
     availabilityOffset: 2,
   },
   {
@@ -35,8 +38,14 @@ export const ROOMS: readonly DemoRoom[] = [
     price: 350,
     capacity: 2,
     beds: 'One king bed',
-    description: 'A fictional suite with a separate sitting area and generous space to unwind.',
-    features: ['Separate living area', 'Sample premium view', 'Work area', 'Sample Wi-Fi amenity'],
+    description:
+      'A fictional suite with a separate sitting area and generous space to unwind.',
+    features: [
+      'Separate living area',
+      'Sample premium view',
+      'Work area',
+      'Sample Wi-Fi amenity',
+    ],
     availabilityOffset: 5,
   },
   {
@@ -46,8 +55,14 @@ export const ROOMS: readonly DemoRoom[] = [
     price: 200,
     capacity: 2,
     beds: 'One king bed',
-    description: 'A comfortable illustrative room with a bright outlook and workspace.',
-    features: ['Work desk', 'Private bathroom', 'Sample city view', 'Sample Wi-Fi amenity'],
+    description:
+      'A comfortable illustrative room with a bright outlook and workspace.',
+    features: [
+      'Work desk',
+      'Private bathroom',
+      'Sample city view',
+      'Sample Wi-Fi amenity',
+    ],
     availabilityOffset: 8,
   },
   {
@@ -57,8 +72,14 @@ export const ROOMS: readonly DemoRoom[] = [
     price: 300,
     capacity: 2,
     beds: 'Two single beds',
-    description: 'An adaptable twin-room concept for two guests travelling together.',
-    features: ['Two single beds', 'Private bathroom', 'Climate control (sample)', 'Sample Wi-Fi amenity'],
+    description:
+      'An adaptable twin-room concept for two guests travelling together.',
+    features: [
+      'Two single beds',
+      'Private bathroom',
+      'Climate control (sample)',
+      'Sample Wi-Fi amenity',
+    ],
     availabilityOffset: 11,
   },
 ];
@@ -91,38 +112,65 @@ export function toUtcDay(iso: string): number | null {
   const date = new Date(0);
   date.setUTCFullYear(y, m - 1, d);
   date.setUTCHours(0, 0, 0, 0);
-  if (date.getUTCFullYear() !== y || date.getUTCMonth() !== m - 1 || date.getUTCDate() !== d) return null;
+  if (
+    date.getUTCFullYear() !== y ||
+    date.getUTCMonth() !== m - 1 ||
+    date.getUTCDate() !== d
+  )
+    return null;
   return Math.floor(date.getTime() / DAY_MS);
 }
 
-export function nightsBetween(arrival: string, departure: string): number | null {
+export function nightsBetween(
+  arrival: string,
+  departure: string
+): number | null {
   const start = toUtcDay(arrival);
   const end = toUtcDay(departure);
   if (start === null || end === null) return null;
   return end - start;
 }
 
-export function validateSearch(input: DemoSearch, today: string = todayLocal()): SearchErrors {
+export function validateSearch(
+  input: DemoSearch,
+  today: string = todayLocal()
+): SearchErrors {
   const errors: SearchErrors = {};
   const start = toUtcDay(input.arrival);
   const end = toUtcDay(input.departure);
   const todayDay = toUtcDay(today);
 
   if (start === null) errors.arrival = 'Choose a valid check-in date.';
-  else if (todayDay !== null && start < todayDay) errors.arrival = 'Check-in cannot be in the past.';
+  else if (todayDay !== null && start < todayDay)
+    errors.arrival = 'Check-in cannot be in the past.';
   if (end === null) errors.departure = 'Choose a valid check-out date.';
-  else if (start !== null && end <= start) errors.departure = 'Check-out must be after check-in.';
-  else if (start !== null && end - start > 21) errors.departure = 'Demo stays are limited to 21 nights.';
+  else if (start !== null && end <= start)
+    errors.departure = 'Check-out must be after check-in.';
+  else if (start !== null && end - start > 21)
+    errors.departure = 'Demo stays are limited to 21 nights.';
 
-  if (!Number.isInteger(input.adults) || input.adults < 1 || input.adults > 8) errors.adults = 'Choose 1 to 8 adults.';
-  if (!Number.isInteger(input.children) || input.children < 0 || input.children > 8) errors.children = 'Choose 0 to 8 children.';
-  if (Number.isInteger(input.adults) && Number.isInteger(input.children) && input.adults + input.children > 8) {
+  if (!Number.isInteger(input.adults) || input.adults < 1 || input.adults > 8)
+    errors.adults = 'Choose 1 to 8 adults.';
+  if (
+    !Number.isInteger(input.children) ||
+    input.children < 0 ||
+    input.children > 8
+  )
+    errors.children = 'Choose 0 to 8 children.';
+  if (
+    Number.isInteger(input.adults) &&
+    Number.isInteger(input.children) &&
+    input.adults + input.children > 8
+  ) {
     errors.children = 'The demo allows a maximum of 8 guests in total.';
   }
   return errors;
 }
 
-export function isValidSearch(input: DemoSearch, today: string = todayLocal()): boolean {
+export function isValidSearch(
+  input: DemoSearch,
+  today: string = todayLocal()
+): boolean {
   return Object.keys(validateSearch(input, today)).length === 0;
 }
 
@@ -133,7 +181,8 @@ export function getRoom(slug: string | null | undefined): DemoRoom | undefined {
 export function isRoomAvailable(room: DemoRoom, search: DemoSearch): boolean {
   const from = toUtcDay(search.arrival);
   const nights = nightsBetween(search.arrival, search.departure);
-  if (from === null || nights === null || nights < 1 || nights > 21) return false;
+  if (from === null || nights === null || nights < 1 || nights > 21)
+    return false;
   if (search.adults + search.children > room.capacity) return false;
   // A fixed, local-only calendar pattern for a believable *demo*.
   // It never represents live hotel inventory.
@@ -143,7 +192,10 @@ export function isRoomAvailable(room: DemoRoom, search: DemoSearch): boolean {
   return true;
 }
 
-export function matchingRooms(search: DemoSearch, today: string = todayLocal()): DemoRoom[] {
+export function matchingRooms(
+  search: DemoSearch,
+  today: string = todayLocal()
+): DemoRoom[] {
   if (!isValidSearch(search, today)) return [];
   return ROOMS.filter((room) => isRoomAvailable(room, search));
 }
@@ -156,11 +208,20 @@ export interface PriceBreakdown {
   currency: 'USD';
 }
 
-export function priceFor(room: DemoRoom, search: DemoSearch): PriceBreakdown | null {
+export function priceFor(
+  room: DemoRoom,
+  search: DemoSearch
+): PriceBreakdown | null {
   const nights = nightsBetween(search.arrival, search.departure);
   if (nights === null || nights < 1 || nights > 21) return null;
   const total = nights * room.price;
-  return { nights, nightlyRate: room.price, roomSubtotal: total, total, currency: 'USD' };
+  return {
+    nights,
+    nightlyRate: room.price,
+    roomSubtotal: total,
+    total,
+    currency: 'USD',
+  };
 }
 
 export function readSearch(params: Pick<URLSearchParams, 'get'>): DemoSearch {
