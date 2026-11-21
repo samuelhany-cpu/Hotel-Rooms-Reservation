@@ -24,7 +24,7 @@ describe('Milestone 1 route safety', () => {
 
   it('does not log or alert with authentication form values', () => {
     const source = [read('app/login/page.tsx'), read('app/signup/page.tsx')].join(
-      '\n',
+      '\n'
     );
 
     expect(source).not.toMatch(/console\.log\s*\(/);
@@ -66,7 +66,7 @@ describe('signup demo validation', () => {
 
     expect(errors.password).toBe('The sample passwords must match.');
     expect(errors.agreeTerms).toBe(
-      'Agree to the terms to test this demonstration form.',
+      'Agree to the terms to test this demonstration form.'
     );
     expect(hasValidationErrors(errors)).toBe(true);
   });
