@@ -75,12 +75,12 @@ export default async function RoomPage({
   const room = rooms[slug as RoomSlug];
 
   return (
-    <main className="content-page room-detail-page">
+    <main id="main-content" className="content-page room-detail-page">
       <div className="content-page-inner room-detail">
         <div className="room-detail-image">
           <Image
             src={room.image}
-            alt={room.title}
+            alt={room.title + ' — illustrative room image'}
             fill
             priority
             sizes="(max-width: 900px) 100vw, 50vw"
@@ -90,8 +90,8 @@ export default async function RoomPage({
           <Link href="/#rooms" className="back-link">
             ← All sample rooms
           </Link>
-          <p className="demo-notice">
-            Sample room and price for this frontend portfolio demo.
+          <p className="demo-notice" role="note">
+            Sample room concept and fictional nightly price. No real availability is checked or reservation created.
           </p>
           <h1>{room.title}</h1>
           <p>{room.description}</p>
