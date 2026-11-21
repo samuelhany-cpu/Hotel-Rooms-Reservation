@@ -1,0 +1,44 @@
+name: Verify portfolio demo branch
+
+on:
+  push:
+    branches:
+      - feature/portfolio-demo-v1
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install --ignore-scripts
+
+      - name: Check formatting
+        run: npx prettier --check package.json vitest.config.ts lib tests app/login/page.tsx app/signup/page.tsx app/forgot-password/page.tsx 'app/rooms/[slug]/page.tsx' components/Header.tsx
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Run focused tests
+        run: npm run test
+
+      - name: Build production application
+        run: npm run build
