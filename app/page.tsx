@@ -28,7 +28,8 @@ export default function Home() {
           fill
           className="hero-image"
           priority
-          sizes="100vw" quality={75}
+          sizes="100vw"
+          quality={75}
         />
         <div className="hero-shade" aria-hidden="true" />
         <div className="container hero-content">

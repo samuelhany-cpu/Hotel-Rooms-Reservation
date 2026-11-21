@@ -3,6 +3,10 @@ export const metadata: Metadata = {
   title: 'Sign-In Interface Preview',
   robots: { index: false, follow: false },
 };
-export default function LoginLayout({ children }: { children: React.ReactNode }) {
+export default function LoginLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return children;
 }

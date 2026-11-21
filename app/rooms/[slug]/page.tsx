@@ -12,7 +12,11 @@ import {
   ROOMS,
 } from '@/lib/booking-demo';
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
   const { slug } = await params;
   const room = getRoom(slug);
   if (!room) return { title: 'Unknown Sample Room', robots: { index: false } };

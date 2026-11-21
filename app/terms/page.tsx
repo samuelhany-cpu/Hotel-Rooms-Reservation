@@ -1,7 +1,10 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = { title: 'Demo Terms', robots: { index: false, follow: false } };
+export const metadata: Metadata = {
+  title: 'Demo Terms',
+  robots: { index: false, follow: false },
+};
 
 export default function TermsPage() {
   return (
@@ -20,8 +23,9 @@ export default function TermsPage() {
         </p>
         <h2>Search and reservations</h2>
         <p>
-          Search results and availability are simulated locally from fictional room
-          data. No real inventory is checked, booking is created, or payment is accepted.
+          Search results and availability are simulated locally from fictional
+          room data. No real inventory is checked, booking is created, or
+          payment is accepted.
         </p>
         <h2>Accounts and contact</h2>
         <p>
