@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface RoomCardProps {
   image: string;
@@ -9,44 +10,23 @@ interface RoomCardProps {
   bookingLink: string;
 }
 
-export default function RoomCard({
-  image,
-  title,
-  description,
-  price,
-  rating = 5,
-  bookingLink,
-}: RoomCardProps) {
+export default function RoomCard({ image, title, description, price, rating = 5, bookingLink }: RoomCardProps) {
   return (
-    <div className="room-card">
+    <article className="room-card">
       <div className="room-card-image">
-        <Image
-          src={image}
-          alt={title}
-          width={800}
-          height={600}
-          style={{ objectFit: 'cover', width: '100%', height: '100%' }}
-          quality={90}
-        />
+        <Image src={image} alt={title} width={800} height={600} sizes="(max-width: 768px) 100vw, 33vw" quality={90} />
       </div>
       <div className="room-card-content">
         <h2 className="room-card-title">{title}</h2>
-        <div className="room-card-rating">
-          {[...Array(rating)].map((_, index) => (
-            <i key={index} className="fa fa-star"></i>
-          ))}
+        <div className="room-card-rating" aria-label={`${rating} out of 5 stars`}>
+          {[...Array(rating)].map((_, index) => <i key={index} className="fa fa-star" aria-hidden="true" />)}
         </div>
         <p className="room-card-description">{description}</p>
         <div className="room-card-footer">
-          <div className="room-card-price">
-            <span className="price-amount">${price}</span>
-            <span className="price-label">Per Night</span>
-          </div>
-          <a className="room-card-btn" href={bookingLink}>
-            BOOK NOW
-          </a>
+          <div className="room-card-price"><span className="price-amount">${price}</span><span className="price-label">Per Night</span></div>
+          <Link className="room-card-btn" href={bookingLink}>VIEW ROOM</Link>
         </div>
       </div>
-    </div>
+    </article>
   );
 }

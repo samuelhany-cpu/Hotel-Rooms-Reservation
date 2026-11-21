@@ -14,7 +14,7 @@ const rooms = [
     description:
       'Our Family Room is the perfect choice for a family vacation. Spacious and comfortable, this room offers ample space for relaxation and quality time together.',
     price: 250,
-    bookingLink: '/room1',
+    bookingLink: '/rooms/family-room',
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const rooms = [
     description:
       'Our Executive Suite is the epitome of luxury. Spacious accommodations, a separate living area, and breathtaking views create an unforgettable experience.',
     price: 350,
-    bookingLink: '/room2',
+    bookingLink: '/rooms/executive-suite',
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ const rooms = [
     description:
       'Our Deluxe Room offers a luxurious stay with a king-size bed, modern amenities, and a beautiful view of the city skyline.',
     price: 200,
-    bookingLink: '/room3',
+    bookingLink: '/rooms/deluxe-room',
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const rooms = [
     description:
       'Our Double Room is ideal for a cozy getaway. Features two comfortable beds, a private bathroom, and essential amenities.',
     price: 300,
-    bookingLink: '/room4',
+    bookingLink: '/rooms/double-room',
   },
 ];
 
@@ -118,7 +118,7 @@ export default function Home() {
             <div className="item">
               <Image
                 src="/images/banner-1.png"
-                alt=""
+                alt="BookingCW hotel suite"
                 width={1920}
                 height={1080}
                 priority
@@ -139,7 +139,7 @@ export default function Home() {
             <div id="home" className="item">
               <Image
                 src="/images/banner-2.png"
-                alt=""
+                alt="Luxury hotel room"
                 width={1920}
                 height={1080}
               />
@@ -159,7 +159,7 @@ export default function Home() {
             <div className="item">
               <Image
                 src="/images/banner-3.png"
-                alt=""
+                alt="Premium hotel accommodation"
                 width={1920}
                 height={1080}
               />
@@ -189,11 +189,11 @@ export default function Home() {
             </h1>
           </div>
           <div className="form">
-            <form className="grid">
-              <input type="date" placeholder="Arrival Date" />
-              <input type="date" placeholder="Departure Date" />
-              <input type="number" placeholder="Adults" />
-              <input type="number" placeholder="Children" />
+            <form className="grid" action="/#rooms">
+              <input type="date" name="arrival" aria-label="Arrival date" required />
+              <input type="date" name="departure" aria-label="Departure date" required />
+              <input type="number" name="adults" placeholder="Adults" aria-label="Number of adults" min="1" defaultValue="1" required />
+              <input type="number" name="children" placeholder="Children" aria-label="Number of children" min="0" defaultValue="0" />
               <input type="submit" value="CHECK AVAILABILITY" />
             </form>
           </div>
@@ -295,7 +295,7 @@ export default function Home() {
       </section>
 
       {/* Gallery Section */}
-      <section className="gallery">
+      <section className="gallery" id="gallery">
         <div className="container top">
           <div className="heading">
             <h1>PHOTOS</h1>

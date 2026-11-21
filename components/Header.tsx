@@ -2,106 +2,84 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
+
+const navItems = [
+  { href: '/', label: 'HOME' },
+  { href: '/#about', label: 'ABOUT' },
+  { href: '/#rooms', label: 'ROOMS' },
+  { href: '/#gallery', label: 'GALLERY' },
+  { href: '/#contact', label: 'CONTACT' },
+];
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const closeMenu = () => {
-    setIsOpen(false);
-  };
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsOpen(false);
+    };
+    window.addEventListener('keydown', closeOnEscape);
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', closeOnEscape);
+    };
+  }, [isOpen]);
 
   return (
     <header>
       <div className="container flex">
         <div className="logo">
-          <Link href="/">
-            <Image
-              src="/images/logo.png"
-              alt="Logo"
-              width={250}
-              height={90}
-              priority
-              style={{ width: 'auto', height: 'auto' }}
-            />
+          <Link href="/" aria-label="BookingCW home">
+            <Image src="/images/logo.png" alt="BookingCW" width={250} height={90} priority />
           </Link>
         </div>
 
-        <div className="navlinks">
-          {/* desktop fallback - keep markup for SEO */}
+        <nav className="navlinks" aria-label="Main navigation">
           <ul className="desktop-nav" id="navbar">
-            <li>
-              <Link href="/">HOME</Link>
-            </li>
-            <li>
-              <Link href="#about">ABOUT</Link>
-            </li>
-             <li>
-              <Link href="#services">CONTACT US</Link>
-            </li>
-            <li>
-              <Link href="#services">SERVICES</Link>
-            </li>
-            <li>
-              <Link href="/signup" className="signup-link">
-                SIGN UP
-              </Link>
-            </li>
-            <li>
-              <button className="book-button">
-                <Link href="/login">LOGIN</Link>
-              </button>
-            </li>
+            {navItems.map((item) => (
+              <li key={item.href}><Link href={item.href}>{item.label}</Link></li>
+            ))}
+            <li><Link href="/signup" className="signup-link">SIGN UP</Link></li>
+            <li><Link className="book-button" href="/login">LOGIN</Link></li>
           </ul>
 
-          {/* mobile toggle button */}
           <button
+            type="button"
             className="mobile-menu-toggle"
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
+            onClick={() => setIsOpen((open) => !open)}
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isOpen}
+            aria-controls="mobile-navigation"
           >
             {isOpen ? <FaTimes /> : <FaBars />}
           </button>
-        </div>
+        </nav>
       </div>
 
-      {/* Mobile overlay panel */}
       <div
         className={`mobile-menu-overlay ${isOpen ? 'active' : ''}`}
-        onClick={closeMenu}
+        onClick={() => setIsOpen(false)}
+        aria-hidden={!isOpen}
       >
-        <div className="mobile-menu-panel" onClick={(e) => e.stopPropagation()}>
+        <nav
+          id="mobile-navigation"
+          className="mobile-menu-panel"
+          aria-label="Mobile navigation"
+          onClick={(event) => event.stopPropagation()}
+        >
           <ul>
-            <li onClick={closeMenu}>
-              <Link href="/">HOME</Link>
-            </li>
-            <li onClick={closeMenu}>
-              <Link href="#about">ABOUT</Link>
-            </li>
-            <li onClick={closeMenu}>
-              <Link href="#rooms">ROOMS</Link>
-            </li>
-            <li onClick={closeMenu}>
-              <Link href="#services">SERVICES</Link>
-            </li>
-            <li onClick={closeMenu}>
-              <Link href="#news">NEWS</Link>
-            </li>
-            <li onClick={closeMenu}>
-              <Link href="/signup">SIGN UP</Link>
-            </li>
-            <li onClick={closeMenu}>
-              <button className="book-button">
-                <Link href="/login">LOGIN</Link>
-              </button>
-            </li>
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} onClick={() => setIsOpen(false)}>{item.label}</Link>
+              </li>
+            ))}
+            <li><Link href="/signup" onClick={() => setIsOpen(false)}>SIGN UP</Link></li>
+            <li><Link className="book-button" href="/login" onClick={() => setIsOpen(false)}>LOGIN</Link></li>
           </ul>
-        </div>
+        </nav>
       </div>
     </header>
   );
