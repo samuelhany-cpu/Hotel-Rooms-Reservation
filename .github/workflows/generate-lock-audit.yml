@@ -1,0 +1,42 @@
+name: Generate lockfile and audit
+
+on:
+  push:
+    branches:
+      - feature/portfolio-demo-v1
+
+permissions:
+  contents: write
+
+jobs:
+  lock-and-audit:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/portfolio-demo-v1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate lockfile
+        run: npm install --package-lock-only --ignore-scripts
+
+      - name: Full dependency audit
+        continue-on-error: true
+        run: npm audit --json
+
+      - name: Production dependency audit
+        continue-on-error: true
+        run: npm audit --omit=dev --json
+
+      - name: Commit lockfile
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package-lock.json
+          git diff --cached --quiet || git commit -m "Add reproducible npm lockfile"
+          git push origin HEAD:feature/portfolio-demo-v1
