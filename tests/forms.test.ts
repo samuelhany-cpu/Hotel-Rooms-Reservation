@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { createElement } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import ForgotPasswordPage from '../app/forgot-password/page';
@@ -6,6 +6,7 @@ import LoginPage from '../app/login/page';
 import SignupPage from '../app/signup/page';
 
 afterEach(() => {
+  cleanup();
   vi.unstubAllGlobals();
 });
 
@@ -41,6 +42,15 @@ describe('nonfunctional authentication previews', () => {
 
     render(createElement(SignupPage));
 
+    fireEvent.change(screen.getByLabelText('Sample first name'), {
+      target: { value: 'Sample' },
+    });
+    fireEvent.change(screen.getByLabelText('Sample last name'), {
+      target: { value: 'Guest' },
+    });
+    fireEvent.change(screen.getByLabelText('Sample email'), {
+      target: { value: 'guest@example.test' },
+    });
     fireEvent.change(screen.getByLabelText('Sample password'), {
       target: { value: 'one-sample' },
     });
