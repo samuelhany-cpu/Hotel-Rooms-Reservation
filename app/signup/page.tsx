@@ -28,7 +28,7 @@ export default function SignupPage() {
 
     if (!hasValidationErrors(nextErrors)) {
       setNotice(
-        'Account creation is not enabled in this frontend portfolio demo. No form values were transmitted or stored. Continue as a guest instead.',
+        'Account creation is not enabled in this frontend portfolio demo. No form values were transmitted or stored. Continue as a guest instead.'
       );
     }
   }
