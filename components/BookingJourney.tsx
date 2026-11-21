@@ -34,7 +34,12 @@ export default function BookingJourney({ initialSearch, initialRoom }: BookingJo
   const [alias, setAlias] = useState('Demo Guest');
   const [accepted, setAccepted] = useState(false);
   const [guestError, setGuestError] = useState('');
-  const [step, setStep] = useState<Step>(initialSearch.arrival && initialSearch.departure ? 'results' : 'search');
+  const [step, setStep] = useState<Step>(() => {
+    const room = getRoom(initialRoom);
+    if (!initialSearch.arrival || !initialSearch.departure) return 'search';
+    if (room && Object.keys(validateSearch(initialSearch)).length === 0 && isRoomAvailable(room, initialSearch)) return 'guest';
+    return 'results';
+  });
   const [locked, setLocked] = useState(false);
 
   useEffect(() => {
