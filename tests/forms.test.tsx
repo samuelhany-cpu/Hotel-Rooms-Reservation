@@ -28,10 +28,9 @@ describe('nonfunctional authentication previews', () => {
     expect(screen.getByRole('status')).toHaveTextContent(
       'Authentication is not enabled'
     );
-    expect(screen.getByRole('link', { name: 'Continue as a guest' })).toHaveAttribute(
-      'href',
-      '/#book'
-    );
+    expect(
+      screen.getByRole('link', { name: 'Continue as a guest' })
+    ).toHaveAttribute('href', '/#book');
     expect(fetchSpy).not.toHaveBeenCalled();
   });
 
@@ -54,9 +53,7 @@ describe('nonfunctional authentication previews', () => {
     expect(screen.getAllByRole('alert')).toHaveLength(2);
     expect(screen.getByText('The sample passwords must match.')).toBeVisible();
     expect(
-      screen.getByText(
-        'Agree to the terms to test this demonstration form.'
-      )
+      screen.getByText('Agree to the terms to test this demonstration form.')
     ).toBeVisible();
 
     fireEvent.change(screen.getByLabelText('Confirm sample password'), {

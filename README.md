@@ -24,17 +24,20 @@ A modern, responsive hotel reservation website built with Next.js 15, TypeScript
 ## 📦 Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/samuelhany-cpu/Hotel-Rooms-Reservation.git
 cd Hotel-Rooms-Reservation/hotel-nextjs
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Run the development server:
+
 ```bash
 npm run dev
 ```
@@ -77,6 +80,7 @@ npm run dev
 ### Manual Deployment
 
 1. Build the project:
+
 ```bash
 npm run build
 ```

@@ -41,7 +41,7 @@ button {
 
 .primary-btn {
   padding: 15px 40px;
-  background: #D4AF37;
+  background: #d4af37;
   font-weight: bold;
   color: white;
 }
@@ -62,7 +62,7 @@ button {
 /*--------header---------*/
 .book-button {
   padding: 10px 20px;
-  background-color: #D4AF37;
+  background-color: #d4af37;
   color: #fff;
   text-transform: uppercase;
   text-decoration: none;
@@ -72,7 +72,7 @@ button {
 }
 
 .book-button:hover {
-  background-color: #D4AF37;
+  background-color: #d4af37;
 }
 
 header {
@@ -101,7 +101,7 @@ header ul li a {
 }
 
 header ul li a:hover {
-  color: #D4AF37;
+  color: #d4af37;
 }
 
 header i {
@@ -153,7 +153,7 @@ header .mobile-menu-toggle {
   }
 
   header .mobile-menu-toggle:hover {
-    color: #D4AF37;
+    color: #d4af37;
   }
 
   /* Fullscreen overlay when menu is active */
@@ -211,12 +211,12 @@ header .mobile-menu-toggle {
   }
 
   .mobile-menu-panel ul li a:hover {
-    color: #D4AF37;
+    color: #d4af37;
   }
 
   .mobile-menu-panel .book-button {
     background: #fff;
-    color: #D4AF37;
+    color: #d4af37;
     padding: 12px 40px;
     border-radius: 8px;
     border: none;
@@ -227,7 +227,7 @@ header .mobile-menu-toggle {
   }
 
   .mobile-menu-panel .book-button:hover {
-    background: #D4AF37;
+    background: #d4af37;
     transform: scale(1.05);
   }
 
@@ -316,7 +316,7 @@ h1 {
 }
 
 .book h1 span {
-  color: #D4AF37;
+  color: #d4af37;
 }
 
 .book input {
@@ -324,7 +324,7 @@ h1 {
 }
 
 .book input:nth-last-child(1) {
-  background: #D4AF37;
+  background: #d4af37;
   color: #fff;
 }
 
@@ -405,7 +405,7 @@ h1 {
 .counter hr {
   width: 50%;
   margin: 10px auto;
-  background: #D4AF37;
+  background: #d4af37;
   height: 2px;
   border: none;
 }
@@ -517,7 +517,7 @@ h1 {
 .price-amount {
   font-size: 32px;
   font-weight: 700;
-  color: #D4AF37;
+  color: #d4af37;
   line-height: 1;
 }
 
@@ -529,7 +529,7 @@ h1 {
 
 .room-card-btn {
   padding: 14px 28px;
-  background: #D4AF37;
+  background: #d4af37;
   color: #fff;
   text-decoration: none;
   border-radius: 8px;
@@ -589,7 +589,7 @@ h1 {
   line-height: 20px;
   margin-left: 20px;
   font-weight: 500;
-  color: #D4AF37;
+  color: #d4af37;
 }
 
 .rooms h3 span {
@@ -604,7 +604,7 @@ h1 {
   top: -20%;
   height: 50px;
   width: 50px;
-  background: #D4AF37 !important;
+  background: #d4af37 !important;
 }
 
 .owl-carousel1 .owl-nav .owl-prev i,
@@ -871,7 +871,7 @@ h1 {
 
 .services i {
   font-size: 50px;
-  color: #D4AF37;
+  color: #d4af37;
   transition: 0.5s;
 }
 
@@ -888,7 +888,7 @@ h1 {
 }
 
 .services .box:hover {
-  background: #D4AF37;
+  background: #d4af37;
   color: #fff;
   cursor: pointer;
 }
@@ -934,7 +934,7 @@ h1 {
 
 .Customer h3 {
   margin-top: 20px;
-  color: #D4AF37;
+  color: #d4af37;
 }
 
 .Customer span {
@@ -948,11 +948,11 @@ h1 {
 }
 
 .owl-carousel2 .owl-dots i {
-  color: #D4AF37;
+  color: #d4af37;
 }
 
 .owl-carousel2 .owl-dots i:hover button {
-  color: #D4AF37 !important;
+  color: #d4af37 !important;
 }
 
 .owl-carousel2 span {
@@ -961,8 +961,8 @@ h1 {
 }
 
 .owl-carousel2 .active span {
-  background: #D4AF37 !important;
-  border: 2px solid #D4AF37;
+  background: #d4af37 !important;
+  border: 2px solid #d4af37;
 }
 
 /*--------Customer---------*/
@@ -972,7 +972,7 @@ h1 {
 }
 
 .news i {
-  color: #D4AF37;
+  color: #d4af37;
   text-transform: capitalize;
   font-size: 18px;
 }
@@ -1029,7 +1029,7 @@ h1 {
 }
 
 .newsletter .container {
-  background: #D4AF37;
+  background: #d4af37;
   padding: 40px 30px;
   position: absolute;
   top: -70px;
@@ -1094,7 +1094,7 @@ footer li {
 }
 
 footer i {
-  color: #D4AF37;
+  color: #d4af37;
   margin: 20px 0;
   margin-right: 20px;
 }
@@ -1310,7 +1310,7 @@ footer label {
 
   .newsletter {
     position: relative;
-    background: #D4AF37;
+    background: #d4af37;
   }
 
   .newsletter .container {
@@ -1425,7 +1425,7 @@ footer label {
 
 .form-group input:focus {
   outline: none;
-  border-color: #D4AF37;
+  border-color: #d4af37;
   background: white;
   box-shadow: 0 0 0 3px rgba(127, 193, 66, 0.1);
 }
@@ -1452,7 +1452,7 @@ footer label {
 
 .forgot-link,
 .terms-link {
-  color: #D4AF37;
+  color: #d4af37;
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
@@ -1466,7 +1466,7 @@ footer label {
 .auth-btn {
   width: 100%;
   padding: 18px;
-  background: linear-gradient(135deg, #D4AF37 0%, #6da835 100%);
+  background: linear-gradient(135deg, #d4af37 0%, #6da835 100%);
   color: white;
   border: none;
   border-radius: 12px;
@@ -1493,7 +1493,7 @@ footer label {
 }
 
 .auth-switch-link {
-  color: #D4AF37;
+  color: #d4af37;
   text-decoration: none;
   font-weight: 600;
 }
@@ -1667,14 +1667,14 @@ footer label {
   color: #764ba2 !important;
 }
 
-
 /* Shared content and room detail pages */
 .content-page {
   min-height: 70vh;
   padding: 80px 20px;
   background: linear-gradient(135deg, #f8fafc, #eef2f7);
 }
-.content-page-inner, .simple-card {
+.content-page-inner,
+.simple-card {
   width: min(1100px, 100%);
   margin: 0 auto;
 }
@@ -1683,32 +1683,106 @@ footer label {
   background: #fff;
   border-radius: 18px;
   padding: clamp(28px, 6vw, 56px);
-  box-shadow: 0 18px 50px rgba(15, 23, 42, .1);
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.1);
 }
-.simple-card h1, .room-detail-copy h1 { color: #1f2937; font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 18px; }
-.simple-card h2 { color: #374151; font-size: 1.3rem; margin: 28px 0 8px; }
-.simple-card p, .room-detail-copy p, .room-detail-copy li { color: #64748b; line-height: 1.8; }
-.back-link { display: inline-block; color: #9a7a12; font-weight: 600; margin: 18px 0; text-decoration: none; }
-.status-message { padding: 18px; margin: 24px 0; border-radius: 10px; background: #ecfdf5; color: #166534; }
-.terms-note { margin-top: 30px; font-size: .9rem; }
-.not-found-card { text-align: center; }
-.eyebrow { color: #D4AF37 !important; font-size: 1.25rem; font-weight: 700; letter-spacing: .2em; }
-.room-detail { display: grid; grid-template-columns: 1.1fr .9fr; background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 18px 50px rgba(15, 23, 42, .12); }
-.room-detail-image { position: relative; min-height: 560px; }
-.room-detail-image img { object-fit: cover; }
-.room-detail-copy { padding: clamp(30px, 6vw, 70px); }
-.room-detail-copy ul { margin: 24px 0; padding-left: 22px; list-style: disc; }
-.room-detail-price { margin: 30px 0; color: #64748b; }
-.room-detail-price strong { color: #D4AF37; font-size: 2.2rem; }
-.page-cta { display: inline-block; text-decoration: none; border: 0; }
-footer a { color: inherit; text-decoration: none; }
-footer a:hover { color: #fff; }
+.simple-card h1,
+.room-detail-copy h1 {
+  color: #1f2937;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 18px;
+}
+.simple-card h2 {
+  color: #374151;
+  font-size: 1.3rem;
+  margin: 28px 0 8px;
+}
+.simple-card p,
+.room-detail-copy p,
+.room-detail-copy li {
+  color: #64748b;
+  line-height: 1.8;
+}
+.back-link {
+  display: inline-block;
+  color: #9a7a12;
+  font-weight: 600;
+  margin: 18px 0;
+  text-decoration: none;
+}
+.status-message {
+  padding: 18px;
+  margin: 24px 0;
+  border-radius: 10px;
+  background: #ecfdf5;
+  color: #166534;
+}
+.terms-note {
+  margin-top: 30px;
+  font-size: 0.9rem;
+}
+.not-found-card {
+  text-align: center;
+}
+.eyebrow {
+  color: #d4af37 !important;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+.room-detail {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.12);
+}
+.room-detail-image {
+  position: relative;
+  min-height: 560px;
+}
+.room-detail-image img {
+  object-fit: cover;
+}
+.room-detail-copy {
+  padding: clamp(30px, 6vw, 70px);
+}
+.room-detail-copy ul {
+  margin: 24px 0;
+  padding-left: 22px;
+  list-style: disc;
+}
+.room-detail-price {
+  margin: 30px 0;
+  color: #64748b;
+}
+.room-detail-price strong {
+  color: #d4af37;
+  font-size: 2.2rem;
+}
+.page-cta {
+  display: inline-block;
+  text-decoration: none;
+  border: 0;
+}
+footer a {
+  color: inherit;
+  text-decoration: none;
+}
+footer a:hover {
+  color: #fff;
+}
 @media (max-width: 800px) {
-  .room-detail { grid-template-columns: 1fr; }
-  .room-detail-image { min-height: 320px; }
-  .content-page { padding: 40px 16px; }
+  .room-detail {
+    grid-template-columns: 1fr;
+  }
+  .room-detail-image {
+    min-height: 320px;
+  }
+  .content-page {
+    padding: 40px 16px;
+  }
 }
-
 
 /* Milestone 1: honest portfolio-demo messaging and validation */
 .demo-notice {

@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
 /* ===== Theme Colors ===== */
-:root{
-  --gold: #C7A008;        /* primary gold from your logo */
-  --gold-light: #FFD700;  /* highlight */
-  --gold-dark: #9E7C06;   /* hover/pressed */
-  --gold-a86: rgba(199,160,8,0.86); /* overlays */
-  --gold-a57: rgba(199,160,8,0.57); /* soft circles */
+:root {
+  --gold: #c7a008; /* primary gold from your logo */
+  --gold-light: #ffd700; /* highlight */
+  --gold-dark: #9e7c06; /* hover/pressed */
+  --gold-a86: rgba(199, 160, 8, 0.86); /* overlays */
+  --gold-a57: rgba(199, 160, 8, 0.57); /* soft circles */
 }
 
 * {

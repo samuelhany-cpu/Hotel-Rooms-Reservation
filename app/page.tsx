@@ -190,10 +190,35 @@ export default function Home() {
           </div>
           <div className="form">
             <form className="grid" action="/#rooms">
-              <input type="date" name="arrival" aria-label="Arrival date" required />
-              <input type="date" name="departure" aria-label="Departure date" required />
-              <input type="number" name="adults" placeholder="Adults" aria-label="Number of adults" min="1" defaultValue="1" required />
-              <input type="number" name="children" placeholder="Children" aria-label="Number of children" min="0" defaultValue="0" />
+              <input
+                type="date"
+                name="arrival"
+                aria-label="Arrival date"
+                required
+              />
+              <input
+                type="date"
+                name="departure"
+                aria-label="Departure date"
+                required
+              />
+              <input
+                type="number"
+                name="adults"
+                placeholder="Adults"
+                aria-label="Number of adults"
+                min="1"
+                defaultValue="1"
+                required
+              />
+              <input
+                type="number"
+                name="children"
+                placeholder="Children"
+                aria-label="Number of children"
+                min="0"
+                defaultValue="0"
+              />
               <input type="submit" value="CHECK AVAILABILITY" />
             </form>
           </div>
@@ -209,21 +234,19 @@ export default function Home() {
               <h2>BookingCW</h2>
             </div>
             <p>
-              At Booking CW, we are transforming client service through 
-              innovation, efficiency, and transparency. Born out of a vision 
-              to challenge outdated methods, we developed a state of the art 
-              system designed to acknowledge client requests within two 
-              minutes and resolve 99% of cases within a single business day.
-              Our unwavering commitment to transparency is a 
-              cornerstone of our success. By sharing real time feedback and 
-              performance metrics, we foster trust and continuously strive to 
-              enhance the client experience.
-              Today, Booking CW stands at the forefront of exceptional 
-              service delivery, setting new standards for reliability and 
-              excellence. We invite you to experience a redefined approach to 
-              service where speed, precision, and trust converge.
-              Welcome to Booking CW: Service, reimagined.
-
+              At Booking CW, we are transforming client service through
+              innovation, efficiency, and transparency. Born out of a vision to
+              challenge outdated methods, we developed a state of the art system
+              designed to acknowledge client requests within two minutes and
+              resolve 99% of cases within a single business day. Our unwavering
+              commitment to transparency is a cornerstone of our success. By
+              sharing real time feedback and performance metrics, we foster
+              trust and continuously strive to enhance the client experience.
+              Today, Booking CW stands at the forefront of exceptional service
+              delivery, setting new standards for reliability and excellence. We
+              invite you to experience a redefined approach to service where
+              speed, precision, and trust converge. Welcome to Booking CW:
+              Service, reimagined.
             </p>
             <button className="primary-btn">ABOUT US</button>
           </div>
