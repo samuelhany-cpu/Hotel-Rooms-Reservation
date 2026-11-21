@@ -10,7 +10,7 @@ export default function LoginPage() {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setNotice(
-      'Authentication is not enabled in this frontend portfolio demo. No credentials were submitted. Continue with the guest booking demo instead.',
+      'Authentication is not enabled in this frontend portfolio demo. No credentials were submitted. Continue with the guest booking demo instead.'
     );
   }
 
