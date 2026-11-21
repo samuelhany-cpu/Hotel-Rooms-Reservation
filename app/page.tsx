@@ -1,8 +1,13 @@
 import Image from 'next/image';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import RoomCard from '@/components/RoomCard';
 import GalleryCard from '@/components/GalleryCard';
 import { ROOMS } from '@/lib/booking-demo';
+
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+};
 
 const gallery = [
   { image: '/images/gallery-1.png', title: 'Room details' },
@@ -23,7 +28,7 @@ export default function Home() {
           fill
           className="hero-image"
           priority
-          sizes="100vw"
+          sizes="100vw" quality={75}
         />
         <div className="hero-shade" aria-hidden="true" />
         <div className="container hero-content">

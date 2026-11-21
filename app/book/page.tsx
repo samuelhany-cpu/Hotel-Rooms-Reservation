@@ -3,7 +3,7 @@ import BookingJourney from '@/components/BookingJourney';
 import { readSearch } from '@/lib/booking-demo';
 
 export const metadata: Metadata = {
-  title: 'Guest Booking Demo | BookingCW',
+  title: 'Guest Booking Demo',
   description:
     'Explore a fictional hotel reservation flow using sample availability and room pricing. No real booking is created.',
   robots: { index: false, follow: true },

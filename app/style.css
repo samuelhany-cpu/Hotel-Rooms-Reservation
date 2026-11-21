@@ -1553,3 +1553,8 @@ img {
     padding: 20px;
   }
 }
+
+/* Keyboard navigation and accessible interaction refinements. */
+.mobile-navigation:focus-within { z-index: 30; }
+.mobile-menu-toggle:focus-visible, .journey-text-button:focus-visible { outline: 3px solid #ad753a; outline-offset: 4px; }
+@media (prefers-contrast: more) { .room-card, .booking-panel, .simple-card { border-color: #59656a; } .eyebrow, .room-card-btn, .text-link { color: #61401e; } }

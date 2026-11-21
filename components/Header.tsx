@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 const navItems = [
@@ -11,13 +11,20 @@ const navItems = [
 ];
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileNavigationRef = useRef<HTMLElement>(null);
   useEffect(() => {
     if (!isOpen) return;
     const previous = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     const onEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setIsOpen(false);
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+        menuButtonRef.current?.focus();
+      }
     };
+    const firstLink = mobileNavigationRef.current?.querySelector('a');
+    firstLink?.focus();
     window.addEventListener('keydown', onEscape);
     return () => {
       document.body.style.overflow = previous;
@@ -53,6 +60,7 @@ export default function Header() {
         </Link>
         <button
           type="button"
+          ref={menuButtonRef}
           className="mobile-menu-toggle"
           onClick={() => setIsOpen((current) => !current)}
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
@@ -67,6 +75,7 @@ export default function Header() {
         </button>
       </div>
       <nav
+        ref={mobileNavigationRef}
         className={['mobile-navigation', isOpen ? 'active' : ''].join(' ')}
         id="mobile-navigation"
         aria-label="Mobile navigation"

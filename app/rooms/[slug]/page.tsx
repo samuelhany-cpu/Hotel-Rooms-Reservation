@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import {
@@ -10,6 +11,17 @@ import {
   readSearch,
   ROOMS,
 } from '@/lib/booking-demo';
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const room = getRoom(slug);
+  if (!room) return { title: 'Unknown Sample Room', robots: { index: false } };
+  return {
+    title: `${room.title} — Sample Room`,
+    description: `${room.description} Fictional room and price; no real reservation is possible.`,
+    alternates: { canonical: `/rooms/${room.slug}` },
+  };
+}
 
 export function generateStaticParams() {
   return ROOMS.map((room) => ({ slug: room.slug }));

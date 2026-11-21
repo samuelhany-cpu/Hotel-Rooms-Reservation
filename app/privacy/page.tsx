@@ -1,4 +1,7 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = { title: 'Privacy and Demo Data', robots: { index: false, follow: false } };
 
 export default function PrivacyPage() {
   return (
@@ -13,9 +16,9 @@ export default function PrivacyPage() {
         </p>
         <h2>What the interface does</h2>
         <p>
-          The current booking search is a preview. It may place fictional dates
-          and guest counts into the page URL; it does not check availability or
-          create a reservation.
+          The current booking flow calculates fictional availability locally. It
+          may place dates and guest counts into the page URL, but no real
+          hotel inventory is checked and no reservation is created.
         </p>
         <h2>Accounts and payments</h2>
         <p>
