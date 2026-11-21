@@ -34,7 +34,7 @@ export default function SignupPage() {
   }
 
   return (
-    <main className="auth-page">
+    <main id="main-content" className="auth-page">
       <div className="auth-container">
         <div className="auth-card">
           <div className="auth-header">

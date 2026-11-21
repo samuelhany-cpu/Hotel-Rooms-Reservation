@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function ForgotPasswordPage() {
   return (
-    <main className="content-page">
+    <main id="main-content" className="content-page">
       <div className="simple-card">
         <h1>Password reset is not available</h1>
         <div className="demo-notice" role="note">
