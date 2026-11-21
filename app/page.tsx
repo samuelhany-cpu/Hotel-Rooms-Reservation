@@ -2,40 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import RoomCard from '@/components/RoomCard';
 import GalleryCard from '@/components/GalleryCard';
+import { ROOMS } from '@/lib/booking-demo';
 
-const rooms = [
-  {
-    title: 'Family Room',
-    image: '/images/room-1.png',
-    description:
-      'A spacious layout for a relaxed group stay, with room for up to four sample guests.',
-    price: 250,
-    bookingLink: '/rooms/family-room',
-  },
-  {
-    title: 'Executive Suite',
-    image: '/images/room-2.png',
-    description:
-      'An inviting suite concept with a separate sitting area and considered details.',
-    price: 350,
-    bookingLink: '/rooms/executive-suite',
-  },
-  {
-    title: 'Deluxe Room',
-    image: '/images/room-3.png',
-    description:
-      'A comfortable retreat with a generous bed and a thoughtfully arranged workspace.',
-    price: 200,
-    bookingLink: '/rooms/deluxe-room',
-  },
-  {
-    title: 'Double Room',
-    image: '/images/room-4.png',
-    description: 'A flexible twin-bed concept for guests travelling together.',
-    price: 300,
-    bookingLink: '/rooms/double-room',
-  },
-];
 const gallery = [
   { image: '/images/gallery-1.png', title: 'Room details' },
   { image: '/images/gallery-2.png', title: 'Comfortable corners' },
@@ -96,7 +64,7 @@ export default function Home() {
                 Try the search interface with fictional dates and guest counts.
               </p>
             </div>
-            <form className="booking-fields" action="/" method="get">
+            <form className="booking-fields" action="/book" method="get">
               <div className="booking-field">
                 <label htmlFor="arrival">Check-in</label>
                 <input id="arrival" name="arrival" type="date" required />
@@ -136,10 +104,8 @@ export default function Home() {
               </button>
             </form>
             <div className="booking-disclosure" role="note">
-              <strong>Demo only.</strong> Search fields are a UI preview and do
-              not filter results yet. No availability, payment, or reservation
-              is processed.{' '}
-              <Link href="/#rooms">Browse sample rooms instead.</Link>
+              <strong>Demo only.</strong> Enter fictional dates and guest counts to explore sample availability and pricing. No real reservation or payment is processed.
+              <Link href="/book"> Start the booking demo.</Link>
             </div>
           </div>
         </div>
@@ -198,8 +164,8 @@ export default function Home() {
             </p>
           </div>
           <div className="rooms-grid">
-            {rooms.map((room) => (
-              <RoomCard key={room.bookingLink} {...room} />
+            {ROOMS.map((room) => (
+              <RoomCard key={room.slug} image={room.image} title={room.title} description={room.description} price={room.price} bookingLink={'/rooms/' + room.slug} />
             ))}
           </div>
         </div>
@@ -242,8 +208,7 @@ export default function Home() {
           <div>
             <p>
               This is a frontend concept. Room descriptions, amenities and
-              prices are sample content. Availability checks, account creation,
-              payments and confirmations are not connected to real services.
+              prices are sample content. Sample availability and confirmation are calculated locally as part of the interactive demo. Accounts, payments and emails are not connected to real services.
             </p>
             <Link className="text-link" href="/privacy">
               How demo data is handled <span aria-hidden="true">→</span>
