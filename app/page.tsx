@@ -181,7 +181,7 @@ export default function Home() {
       </section>
 
       {/* Booking Section */}
-      <section className="book">
+      <section className="book" id="book">
         <div className="container flex_space">
           <div className="text">
             <h1>

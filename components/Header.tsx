@@ -18,32 +18,50 @@ export default function Header() {
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : '';
+
     const closeOnEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') setIsOpen(false);
     };
+
     window.addEventListener('keydown', closeOnEscape);
+
     return () => {
       document.body.style.overflow = '';
       window.removeEventListener('keydown', closeOnEscape);
     };
   }, [isOpen]);
 
+  function closeMenu() {
+    setIsOpen(false);
+  }
+
   return (
     <header>
       <div className="container flex">
         <div className="logo">
           <Link href="/" aria-label="BookingCW home">
-            <Image src="/images/logo.png" alt="BookingCW" width={250} height={90} priority />
+            <Image
+              src="/images/logo.png"
+              alt="BookingCW"
+              width={250}
+              height={90}
+              priority
+            />
           </Link>
         </div>
 
         <nav className="navlinks" aria-label="Main navigation">
           <ul className="desktop-nav" id="navbar">
             {navItems.map((item) => (
-              <li key={item.href}><Link href={item.href}>{item.label}</Link></li>
+              <li key={item.href}>
+                <Link href={item.href}>{item.label}</Link>
+              </li>
             ))}
-            <li><Link href="/signup" className="signup-link">SIGN UP</Link></li>
-            <li><Link className="book-button" href="/login">LOGIN</Link></li>
+            <li>
+              <Link className="book-button" href="/#book">
+                BOOK DEMO
+              </Link>
+            </li>
           </ul>
 
           <button
@@ -61,7 +79,7 @@ export default function Header() {
 
       <div
         className={`mobile-menu-overlay ${isOpen ? 'active' : ''}`}
-        onClick={() => setIsOpen(false)}
+        onClick={closeMenu}
         aria-hidden={!isOpen}
       >
         <nav
@@ -73,11 +91,16 @@ export default function Header() {
           <ul>
             {navItems.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} onClick={() => setIsOpen(false)}>{item.label}</Link>
+                <Link href={item.href} onClick={closeMenu}>
+                  {item.label}
+                </Link>
               </li>
             ))}
-            <li><Link href="/signup" onClick={() => setIsOpen(false)}>SIGN UP</Link></li>
-            <li><Link className="book-button" href="/login" onClick={() => setIsOpen(false)}>LOGIN</Link></li>
+            <li>
+              <Link className="book-button" href="/#book" onClick={closeMenu}>
+                BOOK DEMO
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>

@@ -1708,3 +1708,54 @@ footer a:hover { color: #fff; }
   .room-detail-image { min-height: 320px; }
   .content-page { padding: 40px 16px; }
 }
+
+
+/* Milestone 1: honest portfolio-demo messaging and validation */
+.demo-notice {
+  margin: 0 0 24px;
+  padding: 16px 18px;
+  border: 1px solid #d4af37;
+  border-radius: 10px;
+  background: #fffbea;
+  color: #5f4b0b;
+  line-height: 1.6;
+}
+
+.demo-notice strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.field-error {
+  display: block;
+  margin-top: 8px;
+  color: #b42318;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.form-group input[aria-invalid='true'] {
+  border-color: #b42318;
+}
+
+.auth-actions {
+  display: grid;
+  gap: 12px;
+}
+
+.auth-secondary-btn {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  border: 2px solid #d4af37;
+  border-radius: 12px;
+  color: #765f14;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+}
+
+.auth-secondary-btn:hover,
+.auth-secondary-btn:focus-visible {
+  background: #fffbea;
+}
