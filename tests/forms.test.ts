@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { createElement } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import ForgotPasswordPage from '../app/forgot-password/page';
 import LoginPage from '../app/login/page';
@@ -13,7 +14,7 @@ describe('nonfunctional authentication previews', () => {
     const fetchSpy = vi.fn();
     vi.stubGlobal('fetch', fetchSpy);
 
-    render(<LoginPage />);
+    render(createElement(LoginPage));
 
     fireEvent.change(screen.getByLabelText('Sample email'), {
       target: { value: 'guest@example.test' },
@@ -38,7 +39,7 @@ describe('nonfunctional authentication previews', () => {
     const fetchSpy = vi.fn();
     vi.stubGlobal('fetch', fetchSpy);
 
-    render(<SignupPage />);
+    render(createElement(SignupPage));
 
     fireEvent.change(screen.getByLabelText('Sample password'), {
       target: { value: 'one-sample' },
@@ -76,7 +77,7 @@ describe('nonfunctional authentication previews', () => {
   });
 
   it('does not request an email or claim to send a reset message', () => {
-    render(<ForgotPasswordPage />);
+    render(createElement(ForgotPasswordPage));
 
     expect(
       screen.getByRole('heading', {
