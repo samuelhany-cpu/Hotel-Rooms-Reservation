@@ -1,93 +1,83 @@
 'use client';
 
-import { useState } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
+import { FormEvent, useState } from 'react';
 
 export default function LoginPage() {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-    rememberMe: false,
-  });
+  const [notice, setNotice] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value,
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Login attempt:', formData);
-    // Add login logic here
-  };
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setNotice(
+      'Authentication is not enabled in this frontend portfolio demo. No credentials were submitted. Continue with the guest booking demo instead.'
+    );
+  }
 
   return (
-    <div className="auth-page">
+    <main id="main-content" className="auth-page">
       <div className="auth-container">
         <div className="auth-card">
           <div className="auth-header">
-            <h1>Welcome Back</h1>
-            <p className="text-gray-600 text-center mb-6">
-              Welcome back! Please sign in to your account
-            </p>
+            <h1>Sign-in interface preview</h1>
+            <p>This screen demonstrates form design only.</p>
+          </div>
+
+          <div className="demo-notice" role="note">
+            <strong>Portfolio demo</strong>
+            Do not enter real credentials. This form does not authenticate,
+            transmit, or store its values.
           </div>
 
           <form onSubmit={handleSubmit} className="auth-form">
             <div className="form-group">
-              <label htmlFor="email">Email Address</label>
+              <label htmlFor="email">Sample email</label>
               <input
                 type="email"
                 id="email"
                 name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Enter your email"
+                placeholder="guest@example.test"
+                autoComplete="off"
                 required
               />
             </div>
 
             <div className="form-group">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password">Sample password</label>
               <input
                 type="password"
                 id="password"
                 name="password"
-                value={formData.password}
-                onChange={handleChange}
-                placeholder="Enter your password"
+                placeholder="Use fictional characters only"
+                autoComplete="off"
                 required
               />
             </div>
 
-            <div className="form-options">
-              <label className="checkbox-label">
-                <input
-                  type="checkbox"
-                  name="rememberMe"
-                  checked={formData.rememberMe}
-                  onChange={handleChange}
-                />
-                <span>Remember me</span>
-              </label>
-              <Link href="/forgot-password" className="forgot-link">
-                Forgot password?
+            {notice && (
+              <div className="status-message" role="status">
+                {notice}
+              </div>
+            )}
+
+            <div className="auth-actions">
+              <button type="submit" className="auth-btn">
+                Preview sign-in response
+              </button>
+              <Link href="/#book" className="auth-secondary-btn">
+                Continue as a guest
               </Link>
             </div>
-
-            <button type="submit" className="auth-btn">
-              Sign In
-            </button>
           </form>
 
           <div className="auth-footer">
             <p>
-              Don&apos;t have an account?{' '}
               <Link href="/signup" className="auth-switch-link">
-                Sign up
+                Preview the account form
+              </Link>
+              {' · '}
+              <Link href="/forgot-password" className="auth-switch-link">
+                Password-reset information
               </Link>
             </p>
           </div>
@@ -96,17 +86,17 @@ export default function LoginPage() {
         <div className="auth-image">
           <Image
             src="/images/room-1.png"
-            alt="Hotel Room"
+            alt="Sample BookingCW room"
             width={600}
             height={800}
             style={{ objectFit: 'cover', width: '100%', height: '100%' }}
           />
           <div className="auth-image-overlay">
-            <h2>Experience Luxury</h2>
-            <p>Your perfect getaway awaits at Crowny Hotel</p>
+            <h2>Guest booking comes first</h2>
+            <p>No account is required for the portfolio reservation demo.</p>
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

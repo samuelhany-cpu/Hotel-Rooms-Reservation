@@ -6,9 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint app components lib tests vitest.config.ts",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "jquery": "^3.7.1",
@@ -30,6 +33,13 @@
     "eslint-config-next": "15.5.29",
     "prettier": "^3.6.2",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^4.1.12",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "jsdom": "^27.2.0"
+  },
+  "overrides": {
+    "postcss": "^8.5.23"
   }
 }

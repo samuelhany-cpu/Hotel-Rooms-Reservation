@@ -1,326 +1,256 @@
-'use client';
-
 import Image from 'next/image';
-import { useEffect } from 'react';
+import Link from 'next/link';
 import RoomCard from '@/components/RoomCard';
 import GalleryCard from '@/components/GalleryCard';
 
-// Room data
 const rooms = [
   {
-    id: 1,
-    image: '/images/room-1.png',
     title: 'Family Room',
+    image: '/images/room-1.png',
     description:
-      'Our Family Room is the perfect choice for a family vacation. Spacious and comfortable, this room offers ample space for relaxation and quality time together.',
+      'A spacious layout for a relaxed group stay, with room for up to four sample guests.',
     price: 250,
     bookingLink: '/rooms/family-room',
   },
   {
-    id: 2,
-    image: '/images/room-2.png',
     title: 'Executive Suite',
+    image: '/images/room-2.png',
     description:
-      'Our Executive Suite is the epitome of luxury. Spacious accommodations, a separate living area, and breathtaking views create an unforgettable experience.',
+      'An inviting suite concept with a separate sitting area and considered details.',
     price: 350,
     bookingLink: '/rooms/executive-suite',
   },
   {
-    id: 3,
-    image: '/images/room-3.png',
     title: 'Deluxe Room',
+    image: '/images/room-3.png',
     description:
-      'Our Deluxe Room offers a luxurious stay with a king-size bed, modern amenities, and a beautiful view of the city skyline.',
+      'A comfortable retreat with a generous bed and a thoughtfully arranged workspace.',
     price: 200,
     bookingLink: '/rooms/deluxe-room',
   },
   {
-    id: 4,
-    image: '/images/room-4.png',
     title: 'Double Room',
-    description:
-      'Our Double Room is ideal for a cozy getaway. Features two comfortable beds, a private bathroom, and essential amenities.',
+    image: '/images/room-4.png',
+    description: 'A flexible twin-bed concept for guests travelling together.',
     price: 300,
     bookingLink: '/rooms/double-room',
   },
 ];
-
-// Gallery images
-const galleryImages = [
-  { id: 1, title: 'Luxury Suite' },
-  { id: 2, title: 'Modern Amenities' },
-  { id: 3, title: 'Relaxing Atmosphere' },
-  { id: 4, title: 'Premium Comfort' },
-  { id: 5, title: 'Elegant Design' },
-  { id: 6, title: 'Beautiful Views' },
+const gallery = [
+  { image: '/images/gallery-1.png', title: 'Room details' },
+  { image: '/images/gallery-2.png', title: 'Comfortable corners' },
+  { image: '/images/gallery-3.png', title: 'Warm interiors' },
+  { image: '/images/gallery-4.png', title: 'Considered spaces' },
+  { image: '/images/gallery-5.png', title: 'A place to unwind' },
+  { image: '/images/gallery-6.png', title: 'Inspired surroundings' },
 ];
 
 export default function Home() {
-  useEffect(() => {
-    // Initialize Owl Carousel after scripts are loaded
-    const initCarousel = () => {
-      if (typeof window !== 'undefined' && window.jQuery) {
-        const $ = window.jQuery;
-
-        // Check if owlCarousel is available
-        if (typeof $.fn.owlCarousel === 'function') {
-          // Initialize main carousel
-          $('.owl-carousel').owlCarousel({
-            loop: true,
-            margin: 0,
-            nav: true,
-            dots: false,
-            navText: [
-              "<i class='fa fa-chevron-left'></i>",
-              "<i class='fa fa-chevron-right'></i>",
-            ],
-            responsive: {
-              0: { items: 1 },
-              768: { items: 1 },
-              1000: { items: 1 },
-            },
-          });
-
-          // Initialize rooms and gallery carousel
-          $('.owl-carousel1').owlCarousel({
-            loop: true,
-            margin: 40,
-            nav: true,
-            dots: false,
-            navText: [
-              "<i class='fa fa-chevron-left'></i>",
-              "<i class='fa fa-chevron-right'></i>",
-            ],
-            responsive: {
-              0: { items: 1 },
-              768: { items: 2, margin: 10 },
-              1000: { items: 3 },
-            },
-          });
-        }
-      }
-    };
-
-    // Wait longer for scripts to load
-    const timer = setTimeout(() => {
-      initCarousel();
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <>
-      {/* Hero Section */}
-      <section className="home">
-        <div className="content">
-          <div className="owl-carousel owl-theme">
-            <div className="item">
-              <Image
-                src="/images/banner-1.png"
-                alt="BookingCW hotel suite"
-                width={1920}
-                height={1080}
-                priority
-              />
-              <div className="text">
-                <h1>Where Every Request Becomes Reality</h1>
-                <p>Your home away from home.</p>
-                <div className="flex">
-                  <a className="primary-btn" href="#about">
-                    READ MORE
-                  </a>
-                  <a className="secondary-btn" href="#contact">
-                    CONTACT US
-                  </a>
-                </div>
+    <main id="main-content">
+      <section className="hero" aria-labelledby="hero-title">
+        <Image
+          src="/images/banner-1.png"
+          alt="Warmly lit hotel-inspired interior, used as sample imagery"
+          fill
+          className="hero-image"
+          priority
+          sizes="100vw"
+        />
+        <div className="hero-shade" aria-hidden="true" />
+        <div className="container hero-content">
+          <span className="eyebrow hero-eyebrow">
+            BOOKINGCW · A HOTEL BOOKING CONCEPT
+          </span>
+          <h1 id="hero-title">
+            A quieter way to <em>plan your stay.</em>
+          </h1>
+          <p>
+            Explore thoughtful rooms and a more welcoming booking experience.
+            Built as a front-end portfolio demonstration.
+          </p>
+          <div className="hero-actions">
+            <Link className="button button-primary" href="/#book">
+              Explore the booking demo
+            </Link>
+            <Link className="button button-ghost" href="/#rooms">
+              Discover sample rooms
+            </Link>
+          </div>
+        </div>
+        <p className="hero-photo-note">
+          Illustrative room imagery · Demo property, not a real hotel
+        </p>
+      </section>
+      <section
+        id="book"
+        className="booking-section"
+        aria-labelledby="booking-heading"
+      >
+        <div className="container">
+          <div className="booking-panel">
+            <div className="booking-heading">
+              <span className="eyebrow">PLAN YOUR VISIT</span>
+              <h2 id="booking-heading">Find your kind of stay.</h2>
+              <p>
+                Try the search interface with fictional dates and guest counts.
+              </p>
+            </div>
+            <form className="booking-fields" action="/" method="get">
+              <div className="booking-field">
+                <label htmlFor="arrival">Check-in</label>
+                <input id="arrival" name="arrival" type="date" required />
               </div>
-            </div>
-            <div id="home" className="item">
-              <Image
-                src="/images/banner-2.png"
-                alt="Luxury hotel room"
-                width={1920}
-                height={1080}
-              />
-              <div className="text">
-                <h1>Spend Your Holiday</h1>
-                <p>Your home away from home.</p>
-                <div className="flex">
-                  <a className="primary-btn" href="#about">
-                    READ MORE
-                  </a>
-                  <a className="secondary-btn" href="#contact">
-                    CONTACT US
-                  </a>
-                </div>
+              <div className="booking-field">
+                <label htmlFor="departure">Check-out</label>
+                <input id="departure" name="departure" type="date" required />
               </div>
-            </div>
-            <div className="item">
-              <Image
-                src="/images/banner-3.png"
-                alt="Premium hotel accommodation"
-                width={1920}
-                height={1080}
-              />
-              <div className="text">
-                <h1>Spend Your Holiday</h1>
-                <p>Your home away from home.</p>
-                <div className="flex">
-                  <a className="primary-btn" href="#about">
-                    READ MORE
-                  </a>
-                  <a className="secondary-btn" href="#contact">
-                    CONTACT US
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Booking Section */}
-      <section className="book">
-        <div className="container flex_space">
-          <div className="text">
-            <h1>
-              <span>Book </span> Your Rooms
-            </h1>
-          </div>
-          <div className="form">
-            <form className="grid" action="/#rooms">
-              <input type="date" name="arrival" aria-label="Arrival date" required />
-              <input type="date" name="departure" aria-label="Departure date" required />
-              <input type="number" name="adults" placeholder="Adults" aria-label="Number of adults" min="1" defaultValue="1" required />
-              <input type="number" name="children" placeholder="Children" aria-label="Number of children" min="0" defaultValue="0" />
-              <input type="submit" value="CHECK AVAILABILITY" />
-            </form>
-          </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section className="about top">
-        <div id="about" className="container flex">
-          <div className="left">
-            <div className="heading">
-              <h1>WELCOME</h1>
-              <h2>BookingCW</h2>
-            </div>
-            <p>
-              At Booking CW, we are transforming client service through 
-              innovation, efficiency, and transparency. Born out of a vision 
-              to challenge outdated methods, we developed a state of the art 
-              system designed to acknowledge client requests within two 
-              minutes and resolve 99% of cases within a single business day.
-              Our unwavering commitment to transparency is a 
-              cornerstone of our success. By sharing real time feedback and 
-              performance metrics, we foster trust and continuously strive to 
-              enhance the client experience.
-              Today, Booking CW stands at the forefront of exceptional 
-              service delivery, setting new standards for reliability and 
-              excellence. We invite you to experience a redefined approach to 
-              service where speed, precision, and trust converge.
-              Welcome to Booking CW: Service, reimagined.
-
-            </p>
-            <button className="primary-btn">ABOUT US</button>
-          </div>
-          <div className="right">
-            <Image
-              src="/images/booking-section.jpg"
-              alt="About"
-              width={600}
-              height={400}
-              style={{ width: 'auto', height: 'auto' }}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Counter Section */}
-      <section className="counter top">
-        <div className="container grid">
-          <div className="box">
-            <h1>2500</h1>
-            <hr />
-            <span>Customer</span>
-          </div>
-          <div className="box">
-            <h1>2000</h1>
-            <hr />
-            <span>Happy Customer</span>
-          </div>
-          <div className="box">
-            <h1>150</h1>
-            <hr />
-            <span>Expert Technicians</span>
-          </div>
-          <div className="box">
-            <h1>3550</h1>
-            <hr />
-            <span>Desktop Repaired</span>
-          </div>
-        </div>
-      </section>
-
-      {/* Rooms Section */}
-      <section className="rooms">
-        <div id="rooms" className="container top">
-          <div className="heading">
-            <h1>EXPLORE</h1>
-            <h2>Our Rooms</h2>
-            <p>
-              Indulge in our luxurious rooms, designed for ultimate comfort.
-            </p>
-          </div>
-
-          <div className="content mtop">
-            <div className="owl-carousel owl-carousel1 owl-theme">
-              {rooms.map((room) => (
-                <div className="items" key={room.id}>
-                  <RoomCard
-                    image={room.image}
-                    title={room.title}
-                    description={room.description}
-                    price={room.price}
-                    bookingLink={room.bookingLink}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery Section */}
-      <section className="gallery" id="gallery">
-        <div className="container top">
-          <div className="heading">
-            <h1>PHOTOS</h1>
-            <h2>Our Gallery</h2>
-            <p>
-              Explore the beauty and elegance of our hotel through stunning
-              visuals
-            </p>
-          </div>
-        </div>
-
-        <div className="content mtop">
-          <div className="owl-carousel owl-carousel1 owl-theme">
-            {galleryImages.map((item, idx) => (
-              <div className="items" key={idx}>
-                <GalleryCard
-                  image={`/images/gallery-${item.id}.png`}
-                  alt={item.title}
-                  title={item.title}
+              <div className="booking-field">
+                <label htmlFor="adults">Adults</label>
+                <input
+                  id="adults"
+                  name="adults"
+                  type="number"
+                  min="1"
+                  max="8"
+                  defaultValue="2"
+                  required
                 />
               </div>
+              <div className="booking-field">
+                <label htmlFor="children">Children</label>
+                <input
+                  id="children"
+                  name="children"
+                  type="number"
+                  min="0"
+                  max="8"
+                  defaultValue="0"
+                />
+              </div>
+              <button
+                className="button button-primary booking-submit"
+                type="submit"
+              >
+                Preview search
+              </button>
+            </form>
+            <div className="booking-disclosure" role="note">
+              <strong>Demo only.</strong> Search fields are a UI preview and do
+              not filter results yet. No availability, payment, or reservation
+              is processed.{' '}
+              <Link href="/#rooms">Browse sample rooms instead.</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        id="about"
+        className="story-section section-pad"
+        aria-labelledby="about-heading"
+      >
+        <div className="container story-layout">
+          <div className="story-visual">
+            <Image
+              src="/images/booking-section.jpg"
+              alt="Inviting interior with warm natural light"
+              width={720}
+              height={560}
+              sizes="(max-width: 850px) 100vw, 45vw"
+            />
+            <span className="story-photo-label">THE BOOKINGCW CONCEPT</span>
+          </div>
+          <div className="story-copy">
+            <span className="eyebrow">A STAY WORTH IMAGINING</span>
+            <h2 id="about-heading">
+              Good design makes room for everything else.
+            </h2>
+            <p>
+              BookingCW is a fictional boutique-hotel concept created to
+              demonstrate clear navigation, considered room presentation and an
+              approachable guest journey.
+            </p>
+            <p>
+              Every room, price and photograph here illustrates the experience;
+              this site is not operated by a hotel and cannot accept real
+              bookings.
+            </p>
+            <Link className="text-link" href="/#rooms">
+              Explore room concepts <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+      <section
+        id="rooms"
+        className="rooms-section section-pad"
+        aria-labelledby="rooms-heading"
+      >
+        <div className="container">
+          <div className="section-heading">
+            <div>
+              <span className="eyebrow">CURATED CONCEPTS</span>
+              <h2 id="rooms-heading">Choose your space.</h2>
+            </div>
+            <p>
+              Four sample room types, each designed to make browsing simple.
+              Prices are fictional nightly estimates.
+            </p>
+          </div>
+          <div className="rooms-grid">
+            {rooms.map((room) => (
+              <RoomCard key={room.bookingLink} {...room} />
             ))}
           </div>
         </div>
       </section>
-    </>
+      <section
+        id="gallery"
+        className="gallery-section section-pad"
+        aria-labelledby="gallery-heading"
+      >
+        <div className="container">
+          <div className="section-heading">
+            <div>
+              <span className="eyebrow">A CLOSER LOOK</span>
+              <h2 id="gallery-heading">Spaces to inspire.</h2>
+            </div>
+            <p>Imagery used to illustrate this fictional booking experience.</p>
+          </div>
+          <div className="gallery-grid">
+            {gallery.map((item) => (
+              <GalleryCard
+                key={item.image}
+                image={item.image}
+                title={item.title}
+                alt={item.title + ' — illustrative hotel-style imagery'}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+      <section
+        id="demo"
+        className="demo-section section-pad"
+        aria-labelledby="demo-heading"
+      >
+        <div className="container demo-layout">
+          <div>
+            <span className="eyebrow">A PORTFOLIO EXPERIENCE</span>
+            <h2 id="demo-heading">Made to demonstrate, not to book.</h2>
+          </div>
+          <div>
+            <p>
+              This is a frontend concept. Room descriptions, amenities and
+              prices are sample content. Availability checks, account creation,
+              payments and confirmations are not connected to real services.
+            </p>
+            <Link className="text-link" href="/privacy">
+              How demo data is handled <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }

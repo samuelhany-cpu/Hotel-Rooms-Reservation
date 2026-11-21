@@ -1,0 +1,49 @@
+name: Verify portfolio demo branch
+
+on:
+  push:
+    branches:
+      - feature/portfolio-demo-v1
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Check formatting
+        run: npm run format:check
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Run focused tests
+        run: npm run test
+
+      - name: Audit all dependencies
+        run: npm audit --audit-level=moderate
+
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=moderate
+
+      - name: Build production application
+        run: npm run build

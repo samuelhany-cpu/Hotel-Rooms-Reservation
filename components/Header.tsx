@@ -1,86 +1,97 @@
 'use client';
-
-import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 const navItems = [
-  { href: '/', label: 'HOME' },
-  { href: '/#about', label: 'ABOUT' },
-  { href: '/#rooms', label: 'ROOMS' },
-  { href: '/#gallery', label: 'GALLERY' },
-  { href: '/#contact', label: 'CONTACT' },
+  { href: '/#about', label: 'The concept' },
+  { href: '/#rooms', label: 'Rooms' },
+  { href: '/#gallery', label: 'Gallery' },
+  { href: '/#demo', label: 'Demo notes' },
 ];
-
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-
   useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-    const closeOnEscape = (event: KeyboardEvent) => {
+    if (!isOpen) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const onEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') setIsOpen(false);
     };
-    window.addEventListener('keydown', closeOnEscape);
+    window.addEventListener('keydown', onEscape);
     return () => {
-      document.body.style.overflow = '';
-      window.removeEventListener('keydown', closeOnEscape);
+      document.body.style.overflow = previous;
+      window.removeEventListener('keydown', onEscape);
     };
   }, [isOpen]);
-
   return (
-    <header>
-      <div className="container flex">
-        <div className="logo">
-          <Link href="/" aria-label="BookingCW home">
-            <Image src="/images/logo.png" alt="BookingCW" width={250} height={90} priority />
+    <header className="site-header">
+      <div className="container header-layout">
+        <Link
+          href="/"
+          className="brand"
+          aria-label="BookingCW homepage"
+          onClick={() => setIsOpen(false)}
+        >
+          <span className="brand-symbol" aria-hidden="true">
+            B
+          </span>
+          <span className="brand-name">
+            Booking<span>CW</span>
+            <small>THE STAY CONCEPT</small>
+          </span>
+        </Link>
+        <nav className="desktop-navigation" aria-label="Main navigation">
+          {navItems.map((item) => (
+            <Link key={item.href} href={item.href}>
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+        <Link className="button button-primary header-cta" href="/#book">
+          BOOK DEMO
+        </Link>
+        <button
+          type="button"
+          className="mobile-menu-toggle"
+          onClick={() => setIsOpen((current) => !current)}
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isOpen}
+          aria-controls="mobile-navigation"
+        >
+          {isOpen ? (
+            <FaTimes aria-hidden="true" />
+          ) : (
+            <FaBars aria-hidden="true" />
+          )}
+        </button>
+      </div>
+      <nav
+        className={['mobile-navigation', isOpen ? 'active' : ''].join(' ')}
+        id="mobile-navigation"
+        aria-label="Mobile navigation"
+        aria-hidden={!isOpen}
+        inert={!isOpen}
+      >
+        <div className="container mobile-menu-links">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => setIsOpen(false)}
+            >
+              {item.label}
+            </Link>
+          ))}
+          <Link
+            className="button button-primary"
+            href="/#book"
+            onClick={() => setIsOpen(false)}
+          >
+            BOOK DEMO
           </Link>
         </div>
-
-        <nav className="navlinks" aria-label="Main navigation">
-          <ul className="desktop-nav" id="navbar">
-            {navItems.map((item) => (
-              <li key={item.href}><Link href={item.href}>{item.label}</Link></li>
-            ))}
-            <li><Link href="/signup" className="signup-link">SIGN UP</Link></li>
-            <li><Link className="book-button" href="/login">LOGIN</Link></li>
-          </ul>
-
-          <button
-            type="button"
-            className="mobile-menu-toggle"
-            onClick={() => setIsOpen((open) => !open)}
-            aria-label={isOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={isOpen}
-            aria-controls="mobile-navigation"
-          >
-            {isOpen ? <FaTimes /> : <FaBars />}
-          </button>
-        </nav>
-      </div>
-
-      <div
-        className={`mobile-menu-overlay ${isOpen ? 'active' : ''}`}
-        onClick={() => setIsOpen(false)}
-        aria-hidden={!isOpen}
-      >
-        <nav
-          id="mobile-navigation"
-          className="mobile-menu-panel"
-          aria-label="Mobile navigation"
-          onClick={(event) => event.stopPropagation()}
-        >
-          <ul>
-            {navItems.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href} onClick={() => setIsOpen(false)}>{item.label}</Link>
-              </li>
-            ))}
-            <li><Link href="/signup" onClick={() => setIsOpen(false)}>SIGN UP</Link></li>
-            <li><Link className="book-button" href="/login" onClick={() => setIsOpen(false)}>LOGIN</Link></li>
-          </ul>
-        </nav>
-      </div>
+      </nav>
     </header>
   );
 }

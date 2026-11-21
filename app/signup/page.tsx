@@ -1,160 +1,175 @@
 'use client';
 
-import { useState } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
+import { FormEvent, useState } from 'react';
+import {
+  hasValidationErrors,
+  SignupValidationErrors,
+  validateSignupDemo,
+} from '@/lib/auth-demo-validation';
 
 export default function SignupPage() {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    phone: '',
-    agreeTerms: false,
-  });
+  const [errors, setErrors] = useState<SignupValidationErrors>({});
+  const [notice, setNotice] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value,
-    }));
-  };
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setNotice('');
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (formData.password !== formData.confirmPassword) {
-      alert('Passwords do not match');
-      return;
+    const form = new FormData(event.currentTarget);
+    const nextErrors = validateSignupDemo({
+      password: String(form.get('password') ?? ''),
+      confirmPassword: String(form.get('confirmPassword') ?? ''),
+      agreeTerms: form.get('agreeTerms') === 'on',
+    });
+
+    setErrors(nextErrors);
+
+    if (!hasValidationErrors(nextErrors)) {
+      setNotice(
+        'Account creation is not enabled in this frontend portfolio demo. No form values were transmitted or stored. Continue as a guest instead.'
+      );
     }
-    if (!formData.agreeTerms) {
-      alert('Please agree to the terms and conditions');
-      return;
-    }
-    console.log('Signup attempt:', formData);
-    // Add signup logic here
-  };
+  }
 
   return (
-    <div className="auth-page">
+    <main id="main-content" className="auth-page">
       <div className="auth-container">
         <div className="auth-card">
           <div className="auth-header">
-            <h1>Create Account</h1>
-            <p>Join us for an amazing experience</p>
+            <h1>Account form preview</h1>
+            <p>This screen demonstrates accessible form validation only.</p>
           </div>
 
-          <form onSubmit={handleSubmit} className="auth-form">
+          <div className="demo-notice" role="note">
+            <strong>Use fictional sample values only</strong>
+            This form does not create an account, transmit data, or persist its
+            values.
+          </div>
+
+          <form onSubmit={handleSubmit} className="auth-form" noValidate>
             <div className="form-row">
               <div className="form-group">
-                <label htmlFor="firstName">First Name</label>
+                <label htmlFor="firstName">Sample first name</label>
                 <input
                   type="text"
                   id="firstName"
                   name="firstName"
-                  value={formData.firstName}
-                  onChange={handleChange}
-                  placeholder="Enter your first name"
+                  placeholder="Sample"
+                  autoComplete="off"
                   required
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="lastName">Last Name</label>
+                <label htmlFor="lastName">Sample last name</label>
                 <input
                   type="text"
                   id="lastName"
                   name="lastName"
-                  value={formData.lastName}
-                  onChange={handleChange}
-                  placeholder="Enter your last name"
+                  placeholder="Guest"
+                  autoComplete="off"
                   required
                 />
               </div>
             </div>
 
             <div className="form-group">
-              <label htmlFor="email">Email Address</label>
+              <label htmlFor="email">Sample email</label>
               <input
                 type="email"
                 id="email"
                 name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Enter your email"
-                required
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="phone">Phone Number</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                placeholder="Enter your phone number"
+                placeholder="guest@example.test"
+                autoComplete="off"
                 required
               />
             </div>
 
             <div className="form-row">
               <div className="form-group">
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password">Sample password</label>
                 <input
                   type="password"
                   id="password"
                   name="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  placeholder="Create a password"
+                  placeholder="Fictional value only"
+                  autoComplete="off"
+                  aria-invalid={Boolean(errors.password)}
+                  aria-describedby={
+                    errors.password ? 'password-error' : undefined
+                  }
                   required
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="confirmPassword">Confirm Password</label>
+                <label htmlFor="confirmPassword">Confirm sample password</label>
                 <input
                   type="password"
                   id="confirmPassword"
                   name="confirmPassword"
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                  placeholder="Confirm your password"
+                  placeholder="Repeat the sample value"
+                  autoComplete="off"
+                  aria-invalid={Boolean(errors.password)}
+                  aria-describedby={
+                    errors.password ? 'password-error' : undefined
+                  }
                   required
                 />
               </div>
             </div>
+
+            {errors.password && (
+              <p id="password-error" className="field-error" role="alert">
+                {errors.password}
+              </p>
+            )}
 
             <div className="form-options">
               <label className="checkbox-label">
                 <input
                   type="checkbox"
                   name="agreeTerms"
-                  checked={formData.agreeTerms}
-                  onChange={handleChange}
-                  required
+                  aria-invalid={Boolean(errors.agreeTerms)}
+                  aria-describedby={
+                    errors.agreeTerms ? 'terms-error' : undefined
+                  }
                 />
                 <span>
                   I agree to the{' '}
                   <Link href="/terms" className="terms-link">
-                    Terms and Conditions
+                    demo terms
                   </Link>
                 </span>
               </label>
             </div>
 
-            <button type="submit" className="auth-btn">
-              Create Account
-            </button>
+            {errors.agreeTerms && (
+              <p id="terms-error" className="field-error" role="alert">
+                {errors.agreeTerms}
+              </p>
+            )}
+
+            {notice && (
+              <div className="status-message" role="status">
+                {notice}
+              </div>
+            )}
+
+            <div className="auth-actions">
+              <button type="submit" className="auth-btn">
+                Preview account response
+              </button>
+              <Link href="/#book" className="auth-secondary-btn">
+                Continue as a guest
+              </Link>
+            </div>
           </form>
 
           <div className="auth-footer">
             <p>
-              Already have an account?{' '}
               <Link href="/login" className="auth-switch-link">
-                Sign in
+                Preview the sign-in form
               </Link>
             </p>
           </div>
@@ -163,17 +178,17 @@ export default function SignupPage() {
         <div className="auth-image">
           <Image
             src="/images/room-2.png"
-            alt="Hotel Suite"
+            alt="Sample BookingCW suite"
             width={600}
             height={800}
             style={{ objectFit: 'cover', width: '100%', height: '100%' }}
           />
           <div className="auth-image-overlay">
-            <h2>Join Our Community</h2>
-            <p>Discover exclusive offers and personalized experiences</p>
+            <h2>Explore without an account</h2>
+            <p>The reservation journey is designed for demo guest checkout.</p>
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
