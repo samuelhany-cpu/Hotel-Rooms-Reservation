@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import {
   criteriaQuery,
   demoReference,
@@ -10,6 +10,7 @@ import {
   isRoomAvailable,
   matchingRooms,
   priceFor,
+  readSearch,
   ROOMS,
   roomDetailsHref,
   todayLocal,
@@ -35,6 +36,24 @@ export default function BookingJourney({ initialSearch, initialRoom }: BookingJo
   const [guestError, setGuestError] = useState('');
   const [step, setStep] = useState<Step>(initialSearch.arrival && initialSearch.departure ? 'results' : 'search');
   const [locked, setLocked] = useState(false);
+
+  useEffect(() => {
+    const restoreFromUrl = () => {
+      const params = new URLSearchParams(window.location.search);
+      const restored = readSearch(params);
+      const room = getRoom(params.get('room'));
+      setSearch(restored);
+      setSelectedSlug(room?.slug ?? '');
+      setErrors({});
+      setGuestError('');
+      setAccepted(false);
+      setLocked(false);
+      setAlias('Demo Guest');
+      setStep(restored.arrival && restored.departure ? (room && isRoomAvailable(room, restored) && Object.keys(validateSearch(restored)).length === 0 ? 'guest' : 'results') : 'search');
+    };
+    window.addEventListener('popstate', restoreFromUrl);
+    return () => window.removeEventListener('popstate', restoreFromUrl);
+  }, []);
 
   const selectedRoom = getRoom(selectedSlug);
   const matching = matchingRooms(search);
